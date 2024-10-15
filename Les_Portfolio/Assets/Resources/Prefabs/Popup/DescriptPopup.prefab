@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 782077259775445554}
   - component: {fileID: 2592992028178667662}
   m_Layer: 5
-  m_Name: Frame
+  m_Name: OkButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -448,13 +448,14 @@ GameObject:
   - component: {fileID: 6139756039190347160}
   - component: {fileID: 6809110925514841528}
   - component: {fileID: 3370685977189385742}
+  - component: {fileID: 5859093615625975657}
   m_Layer: 5
   m_Name: DescriptPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2611571512828679020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -525,6 +526,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5859093615625975657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8326065646042010097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cee9752acee644b4b9ec89e6455fdfec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnHide: 0
+  TargetFrameRate: -1
+  TopMost: 0
+  CancelOnBack: 1
+  descriptsText: {fileID: 1993616860447294388}
+  okButton: {fileID: 2592992028178667662}
 --- !u!1 &9216906341154728569
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,7 +556,7 @@ GameObject:
   - component: {fileID: 5050457612792524713}
   - component: {fileID: 5847470899347173908}
   m_Layer: 5
-  m_Name: Button
+  m_Name: OkImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

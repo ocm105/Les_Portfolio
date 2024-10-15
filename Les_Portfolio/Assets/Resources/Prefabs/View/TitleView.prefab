@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 3148198046688794075}
   - component: {fileID: 9163991280909906886}
   - component: {fileID: 8204659632870593946}
+  - component: {fileID: 2353889086263437922}
   m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
@@ -224,6 +225,46 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2353889086263437922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188150010806903222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:327b71a7cc822ab4a8839edba0008686
+    m_TableEntryReference:
+      m_KeyId: 3511652753408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8204659632870593946}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2932878871232651446
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +277,7 @@ GameObject:
   - component: {fileID: 7088605661029745191}
   - component: {fileID: 1029806698279836172}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: StartText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,12 +290,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2932878871232651446}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6669896093211391205}
+  m_Father: {fileID: 8525683783586575414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -289,7 +330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC544\uBB34 \uACF3\uC774\uB098 \uD074\uB9AD\uD558\uC138\uC694..."
+  m_text: "\uB9AC\uC18C\uC2A4 \uB2E4\uC6B4\uB85C\uB4DC \uC911..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 18a49cd3b9cf80a489b06fe8b2652b54, type: 2}
   m_sharedMaterial: {fileID: 6583082708468271810, guid: 18a49cd3b9cf80a489b06fe8b2652b54, type: 2}
@@ -369,6 +410,7 @@ GameObject:
   - component: {fileID: 8525683783586575414}
   - component: {fileID: 8619243026439735332}
   - component: {fileID: 6564080469997899513}
+  - component: {fileID: 2111539797207301559}
   m_Layer: 5
   m_Name: TitleView
   m_TagString: Untagged
@@ -390,6 +432,7 @@ RectTransform:
   m_Children:
   - {fileID: 6324222109715464327}
   - {fileID: 6669896093211391205}
+  - {fileID: 8050583359333067650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -435,6 +478,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2111539797207301559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4432737424386256086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5eac37c3fe75a4fbac5c0e58806abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnHide: 0
+  TargetFrameRate: -1
+  Background: 
+  Header: 
+  Footer: 
+  BgmKey: BGM_MAIN
+  title: {fileID: 2188150010806903222}
+  startButton: {fileID: 6105847698276194998}
+  startText: {fileID: 1029806698279836172}
 --- !u!1 &5284002292396607536
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,8 +566,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8050583359333067650}
+  m_Children: []
   m_Father: {fileID: 8525683783586575414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
