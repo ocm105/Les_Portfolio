@@ -19,7 +19,7 @@ public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
         DontDestroyOnLoad(this);
     }
 
-    public IEnumerator Init()
+    public IEnumerator LoadData()
     {
         if (isCompleted == false)
         {
@@ -29,8 +29,8 @@ public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
             yield return new WaitUntil(() => tableOp.IsDone);
 
             localizationTable = tableOp.Result;
+            isCompleted = tableOp.IsDone;
         }
-        isCompleted = true;
     }
 
     public string GetLocalizeText(string key)

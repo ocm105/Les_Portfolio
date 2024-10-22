@@ -10,12 +10,12 @@ public class TitleView : UIView
 {
     [SerializeField] GameObject title;
     [SerializeField] Button startButton;
+    [SerializeField] TextMeshProUGUI loadText;
     [SerializeField] TextMeshProUGUI startText;
 
     public void Show()
     {
         ShowLayer();
-        Init();
     }
     protected override void OnFirstShow()
     {
@@ -23,22 +23,26 @@ public class TitleView : UIView
     }
     protected override void OnShow()
     {
-
+        Init();
     }
+
     private void Init()
     {
         title.SetActive(true);
         startText.gameObject.SetActive(true);
         startButton.gameObject.SetActive(false);
 
-        StartCoroutine(Initialize());
+        StartCoroutine(DataLoad());
     }
-    private IEnumerator Initialize()
+    private IEnumerator DataLoad()
     {
-        yield return StartCoroutine(LocalizationManager.Instance.Init());
+        // Localization Data Load
+        yield return StartCoroutine(LocalizationManager.Instance.LoadData());
         LocalizationManager.Instance.ChangeLanguage((int)LanguageType.Korean);
         Debug.Log($"<color=red>LocalizationManager Completed</color>");
+
         startText.text = LocalizationManager.Instance.GetLocalizeText("Title_load");
+        // Game Data Load
         yield return StartCoroutine(GameDataManager.Instance.LoadData());
         Debug.Log($"<color=red>GameDataManager Completed</color>");
 
@@ -47,14 +51,14 @@ public class TitleView : UIView
         startText.text = LocalizationManager.Instance.GetLocalizeText("Title_startButton");
         Tween_Fadein(startText);
     }
-    #region Event
 
+    #region Event
     private void OnClick_StartBtn()
     {
         startButton.gameObject.SetActive(false);
         startText.gameObject.SetActive(false);
 
-        PopupState popupState = UIManager.Instance.Popup<DescriptPopup>().Open();
+        PopupState popupState = UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
         popupState.OnYes = p => PortfolioStart();
     }
 

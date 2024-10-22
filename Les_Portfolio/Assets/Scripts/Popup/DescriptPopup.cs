@@ -4,19 +4,19 @@ using UnityEngine;
 using UISystem;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class DescriptPopup : UIPopup
 {
     [SerializeField] TextMeshProUGUI descriptsText;
     [SerializeField] Button okButton;
 
-    int test = 1001;
-    private bool isLast = false;
+    private int descriptIndex;
 
-    public PopupState Open()
+    public PopupState Open(DescriptType type)
     {
         ShowLayer();
-        Init();
+        Init((int)type);
 
         return state;
     }
@@ -28,16 +28,21 @@ public class DescriptPopup : UIPopup
     {
     }
 
-    private void Init()
+    private void Init(int index)
     {
-        isLast = false;
-        StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[test].descript_key));
+        descriptIndex = index;
+        StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key));
     }
     #region Event
     private void OnClick_OkBtn()
     {
-        isLast = true;
-        StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[test + 1].descript_key));
+        if (GameDataManager.Instance.discription_Data[descriptIndex].next_index == (int)DescriptType.NULL)
+            OnResult(PopupResults.OK);
+        else
+        {
+            descriptIndex++;
+            StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key));
+        }
     }
     private IEnumerator SpeechText(string key)
     {
@@ -47,12 +52,12 @@ public class DescriptPopup : UIPopup
         string text = string.Empty;
         for (int i = 0; i < msg.Length; i++)
         {
-            yield return new WaitForSeconds(0.15f);
+            yield return new WaitForSeconds(0.1f);
             text += msg[i];
             descriptsText.text = text;
         }
         okButton.image.raycastTarget = true;
-        if (isLast) OnResult(PopupResults.OK);
+
     }
 
     #endregion

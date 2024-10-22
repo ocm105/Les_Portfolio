@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class DescriptData
 {
     public int index;
+    public int next_index;
     public string descript_key;
 }
 
