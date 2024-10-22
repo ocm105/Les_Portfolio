@@ -15,9 +15,9 @@ MonoBehaviour:
   m_DefaultGroup: dac36d0d9e2030d41b212b25a394be09
   m_currentHash:
     serializedVersion: 2
-    Hash: 99c7eae047ef2277803b555800c15509
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
-  m_BuildRemoteCatalog: 0
+  m_BuildRemoteCatalog: 1
   m_BundleLocalCatalog: 0
   m_CatalogRequestsTimeout: 0
   m_DisableCatalogUpdateOnStart: 0
@@ -35,10 +35,10 @@ MonoBehaviour:
   m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 
+    m_Id: 7e9509a4cca899049849c139510567f3
   m_RemoteCatalogLoadPath:
-    m_Id: 
-  m_ContentStateBuildPathProfileVariableName: 
+    m_Id: 46a6cc0f4ab702248ac93a8b77cdb551
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
   m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
   m_BuildAddressablesWithPlayerBuild: 0
@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 645c04e3c86d701448ea7dbc77e744b4, type: 2}
   - {fileID: 11400000, guid: dffec143ee6b23d4d8dd6bebbb3bd863, type: 2}
   - {fileID: 11400000, guid: f758bc2c6e280b9439e6a6da16b78f64, type: 2}
+  - {fileID: 11400000, guid: 2d248cdba44d0dc4290594e2d0b67f8c, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -71,7 +72,9 @@ MonoBehaviour:
       - m_Id: 7e9509a4cca899049849c139510567f3
         m_Value: ServerData/[BuildTarget]
       - m_Id: 46a6cc0f4ab702248ac93a8b77cdb551
-        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+        m_Value: '[RemoteRootPath]/[BuildTarget]'
+      - m_Id: c305ef3d8c19e884eb3e62cd96309aa4
+        m_Value: https://lesportfoliobucket.s3.ap-northeast-2.amazonaws.com
     m_ProfileEntryNames:
     - m_Id: e46202af12524f344a47554a1fa230eb
       m_Name: BuildTarget
@@ -87,6 +90,9 @@ MonoBehaviour:
       m_InlineUsage: 0
     - m_Id: 46a6cc0f4ab702248ac93a8b77cdb551
       m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    - m_Id: c305ef3d8c19e884eb3e62cd96309aa4
+      m_Name: RemoteRootPath
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
