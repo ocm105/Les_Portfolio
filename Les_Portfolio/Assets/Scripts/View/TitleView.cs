@@ -80,7 +80,7 @@ public class TitleView : UIView
     {
         // 씬이동
         Debug.Log("씬이동");
-        LoadingManager.Instance.SceneLoad(Constants.Scene.CharacterScene);
+        LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
     }
     #endregion
 
