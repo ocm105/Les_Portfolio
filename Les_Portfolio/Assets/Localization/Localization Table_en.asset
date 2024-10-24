@@ -42,6 +42,18 @@ MonoBehaviour:
     m_Localized: Let's start the portfolio.
     m_Metadata:
       m_Items: []
+  - m_Id: 2865996294561792
+    m_Localized: Male
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996294561793
+    m_Localized: Female
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996294561794
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

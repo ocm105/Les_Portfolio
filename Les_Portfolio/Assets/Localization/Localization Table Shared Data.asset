@@ -27,6 +27,22 @@ MonoBehaviour:
     m_Key: Title_load
     m_Metadata:
       m_Items: []
+  - m_Id: 2865996269395968
+    m_Key: Character_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996294561792
+    m_Key: Character_male
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996294561793
+    m_Key: Character_female
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996294561794
+    m_Key: Character_selectButton
+    m_Metadata:
+      m_Items: []
   - m_Id: 91537485635584
     m_Key: Descript_Introduct
     m_Metadata:

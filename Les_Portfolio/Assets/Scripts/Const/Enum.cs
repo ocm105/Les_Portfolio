@@ -19,6 +19,12 @@ public enum CharacterType
     Male = 0,
     Female
 }
+public enum CharacterSceneState
+{
+    Unclick = 0,
+    Click,
+    Select
+}
 
 public enum GAMEDATA_STATE
 {
