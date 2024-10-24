@@ -59,7 +59,7 @@ public class TitleView : UIView
         startText.gameObject.SetActive(false);
 
         PopupState popupState = UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
-        popupState.OnYes = p => PortfolioStart();
+        popupState.OnOK = p => PortfolioStart();
     }
 
     private void Tween_Fadein(TextMeshProUGUI text)
@@ -80,6 +80,7 @@ public class TitleView : UIView
     {
         // 씬이동
         Debug.Log("씬이동");
+        LoadingManager.Instance.SceneLoad(Constants.Scene.CharacterScene);
     }
     #endregion
 
