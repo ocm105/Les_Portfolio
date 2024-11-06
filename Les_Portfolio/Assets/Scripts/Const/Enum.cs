@@ -1,10 +1,20 @@
 
+
+#region Setting
 // 언어 타입
 public enum LanguageType
 {
     Korean = 0,
     English,
 }
+
+public enum PlayerViewType
+{
+    FPSView,
+    QuarterView,
+    ShoulderView
+}
+#endregion
 
 // 설명 타입
 public enum DescriptType
@@ -33,13 +43,7 @@ public enum PlayerAniState
     Victory
 }
 
-public enum PlayerCamaraType
-{
-    FPView,
-    QuarterView,
-    ShoulderView
 
-}
 
 public enum GAMEDATA_STATE
 {
