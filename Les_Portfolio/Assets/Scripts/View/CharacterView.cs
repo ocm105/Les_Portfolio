@@ -59,6 +59,7 @@ public class CharacterView : UIView
     {
         selectAnimator.Rebind();
         selectAnimator.SetFloat("Select", (int)CharacterSceneState.Select);
+        LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
     }
     #endregion
 }

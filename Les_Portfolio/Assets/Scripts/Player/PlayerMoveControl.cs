@@ -17,13 +17,9 @@ public class PlayerMoveControl : MonoBehaviour
 
     private void Awake()
     {
-        characterController = this.GetComponent<CharacterController>();
-        mainCam = Camera.main;
-    }
-    private void Start()
-    {
         playerInfo = this.GetComponent<PlayerInfo>();
-        Init();
+        characterController = this.GetComponent<CharacterController>();
+        mainCam = playerInfo._mainCamera;
     }
 
     private void Init()
@@ -51,8 +47,11 @@ public class PlayerMoveControl : MonoBehaviour
 #endif
         moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
-        lookPosition = Quaternion.LookRotation(movePostion).eulerAngles;
-        this.transform.rotation = Quaternion.Euler(Vector3.up * (lookPosition.y + mainCam.transform.eulerAngles.y)).normalized;
+        if (moveSpeed > 0)
+        {
+            lookPosition = Quaternion.LookRotation(movePostion).eulerAngles;
+            this.transform.rotation = Quaternion.Euler(Vector3.up * (lookPosition.y + mainCam.transform.eulerAngles.y)).normalized;
+        }
 
         characterController.Move(this.transform.forward * speed * moveSpeed * Time.fixedDeltaTime);
 

@@ -55,8 +55,10 @@ public class LoadingManager : SingletonMonoBehaviour<LoadingManager>
 
         yield return new WaitUntil(() => load_op.progress >= 0.9f);
         load_op.allowSceneActivation = true;
+        yield return new WaitUntil(() => load_op.isDone);
 
         yield return null;
+
         SceneManager.UnloadSceneAsync(currentSceneName);
         SetFadeIn();
         yield return new WaitUntil(() => isFade == false);

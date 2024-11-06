@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UISystem;
 
 public class MainView : UIView
 {
     [SerializeField] Joystick joystick;
+    [SerializeField] Button settingButton;
 
     private PlayerInfo playerInfo;
 
@@ -21,5 +23,14 @@ public class MainView : UIView
     protected override void OnShow()
     {
         playerInfo._playerMoveControl.SetJoystick(joystick);
+        settingButton.onClick.AddListener(OnClick_SettingBtn);
     }
+
+    #region Event
+    private void OnClick_SettingBtn()
+    {
+        PopupState popupState = Les_UIManager.Instance.Popup<SettingPopup>().Open();
+        popupState.OnClose = p => Debug.Log("닫음");
+    }
+    #endregion
 }

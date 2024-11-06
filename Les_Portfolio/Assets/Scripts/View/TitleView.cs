@@ -58,7 +58,7 @@ public class TitleView : UIView
         startButton.gameObject.SetActive(false);
         startText.gameObject.SetActive(false);
 
-        PopupState popupState = UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
+        PopupState popupState = Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
         popupState.OnOK = p => PortfolioStart();
     }
 
@@ -79,7 +79,6 @@ public class TitleView : UIView
     private void PortfolioStart()
     {
         // 씬이동
-        Debug.Log("씬이동");
         LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
     }
     #endregion

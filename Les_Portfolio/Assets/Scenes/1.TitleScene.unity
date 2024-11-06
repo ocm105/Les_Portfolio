@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 965389787}
   - component: {fileID: 965389786}
   - component: {fileID: 965389785}
-  - component: {fileID: 965389790}
+  - component: {fileID: 965389789}
   m_Layer: 5
   m_Name: UIRoot
   m_TagString: Untagged
@@ -465,7 +465,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &965389790
+--- !u!114 &965389789
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -474,7 +474,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 965389784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e1804cdb2d56944aa88733c57774445, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fd3feacf10ea88449d083b7f1279c3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TargetFrameRate: 60

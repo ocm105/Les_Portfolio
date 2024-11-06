@@ -24,9 +24,7 @@ public class DescriptPopup : UIPopup
     {
         okButton.onClick.AddListener(OnClick_OkBtn);
     }
-    protected override void OnShow()
-    {
-    }
+    protected override void OnShow() { }
 
     private void Init(int index)
     {

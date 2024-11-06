@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInfo : MonoBehaviour
 {
+    [SerializeField] Camera mainCamera;
+    public Camera _mainCamera { get { return mainCamera; } }
     [SerializeField] PlayerMoveControl playerMoveControl;
     public PlayerMoveControl _playerMoveControl { get { return playerMoveControl; } }
 

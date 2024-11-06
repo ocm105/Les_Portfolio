@@ -40,7 +40,7 @@ public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>
     {
         if (NetworkCheck())
         {
-            UIManager.Instance.CurrentView.Loading = true;
+            Les_UIManager.Instance.CurrentView.Loading = true;
 
             // string jsonReq = JsonUtility.ToJson(reqParam);
 
@@ -75,7 +75,7 @@ public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>
                 request.Dispose();
             }
 
-            UIManager.Instance.CurrentView.Loading = false;
+            Les_UIManager.Instance.CurrentView.Loading = false;
         }
     }
 
@@ -83,7 +83,7 @@ public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>
     {
         if (NetworkCheck())
         {
-            UIManager.Instance.CurrentView.Loading = true;
+            Les_UIManager.Instance.CurrentView.Loading = true;
 
             // Debug.Log($"<color=green>[Req_Get]</color>=> url: {url}");
 
@@ -113,7 +113,7 @@ public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>
                 request.Dispose();
             }
 
-            UIManager.Instance.CurrentView.Loading = false;
+            Les_UIManager.Instance.CurrentView.Loading = false;
         }
     }
 

@@ -10,7 +10,7 @@ public enum LanguageType
 
 public enum PlayerViewType
 {
-    FPSView,
+    FPSView = 0,
     QuarterView,
     ShoulderView
 }
