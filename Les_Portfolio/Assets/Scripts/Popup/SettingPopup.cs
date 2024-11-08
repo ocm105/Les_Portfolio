@@ -36,6 +36,10 @@ public class SettingPopup : UIPopup
     private LanguageType languageType;
     #endregion
 
+    [SerializeField] Button exitButton;
+    private LocalSettingInfo localSettingInfo;
+
+
     public PopupState Open()
     {
         ShowLayer();
@@ -59,6 +63,8 @@ public class SettingPopup : UIPopup
             LanguageType type = (LanguageType)i;
             lggButtons[i].onClick.AddListener(() => OnClick_languageBtn(type));
         }
+
+        exitButton.onClick.AddListener(OnClick_Exit);
     }
     protected override void OnShow()
     {
@@ -66,7 +72,7 @@ public class SettingPopup : UIPopup
     }
     private void Init()
     {
-        LocalSettingInfo localSettingInfo = LocalSave.GetSettingInfo();
+        localSettingInfo = LocalSave.GetSettingInfo();
         bgmSlider.value = localSettingInfo.bgmVolume;
         sfxSlider.value = localSettingInfo.sfxVolume;
         isBgm = localSettingInfo.isBgm;
@@ -124,6 +130,20 @@ public class SettingPopup : UIPopup
         }
 
         languageType = type;
+    }
+
+    private void OnClick_Exit()
+    {
+        localSettingInfo.bgmVolume = bgmSlider.value;
+        localSettingInfo.sfxVolume = sfxSlider.value;
+        localSettingInfo.isBgm = isBgm;
+        localSettingInfo.isSfx = isSfx;
+
+        localSettingInfo.playerViewType = playerViewType;
+        localSettingInfo.languageType = languageType;
+
+        LocalSave.SetSettingInfo(localSettingInfo);
+        OnResult(PopupResults.Close);
     }
     #endregion
 }

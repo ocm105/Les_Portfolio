@@ -544,7 +544,7 @@ RectTransform:
   m_Father: {fileID: 2301148572335848368}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'FPS
+  m_text: 'Shoulder
 
     View'
   m_isRightToLeft: 0
@@ -1368,8 +1368,8 @@ RectTransform:
   - {fileID: 1462371628411413363}
   m_Father: {fileID: 4257245223450814006}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shoulder
+  m_text: 'FPS
 
     View'
   m_isRightToLeft: 0
@@ -2637,7 +2637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7757027171811305962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2741,6 +2741,7 @@ MonoBehaviour:
   lggButtons:
   - {fileID: 188548765404001587}
   - {fileID: 254043862687361943}
+  exitButton: {fileID: 5869573881346052635}
 --- !u!1 &6426665359178826367
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,8 +3083,8 @@ RectTransform:
   - {fileID: 5094866533809399328}
   m_Father: {fileID: 1272405816963306526}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4001,7 +4002,7 @@ GameObject:
   - component: {fileID: 3391586300156231748}
   - component: {fileID: 5869573881346052635}
   m_Layer: 0
-  m_Name: Close
+  m_Name: ExitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4277,7 +4278,7 @@ RectTransform:
   m_Father: {fileID: 772948131962021730}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
