@@ -16,7 +16,6 @@ public class SettingPopup : UIPopup
     [SerializeField] Slider sfxSlider;
     private float bgmVolume, sfxVolume;
     private bool isBgm, isSfx;
-
     #endregion
 
     #region View
@@ -61,8 +60,21 @@ public class SettingPopup : UIPopup
             lggButtons[i].onClick.AddListener(() => OnClick_languageBtn(type));
         }
     }
-    protected override void OnShow() { }
-    private void Init() { }
+    protected override void OnShow()
+    {
+        Init();
+    }
+    private void Init()
+    {
+        LocalSettingInfo localSettingInfo = LocalSave.GetSettingInfo();
+        bgmSlider.value = localSettingInfo.bgmVolume;
+        sfxSlider.value = localSettingInfo.sfxVolume;
+        isBgm = localSettingInfo.isBgm;
+        isSfx = localSettingInfo.isSfx;
+
+        OnClick_ViewBtn(localSettingInfo.playerViewType);
+        OnClick_languageBtn(localSettingInfo.languageType);
+    }
 
     #region Event
     private void OnChange_BGM(float value)
