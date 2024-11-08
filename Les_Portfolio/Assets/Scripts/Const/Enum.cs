@@ -33,6 +33,7 @@ public enum CharacterSceneState
 
 public enum CharacterType
 {
+    none = -1,
     Male = 0,
     Female
 }

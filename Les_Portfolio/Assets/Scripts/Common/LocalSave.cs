@@ -5,8 +5,8 @@ using System.IO;
 
 public static class LocalSave
 {
-    private const string PREFS_DATA_VOLUME = "PREFS_DATA_VOLUME";
     private const string PREFS_DATA_SETTING = "PREFS_DATA_SETTING";
+    private const string PREFS_DATA_CHARACTER = "PREFS_DATA_CHARACTER";
 
     #region Base
     private static T GetLocalData<T>(string key)
@@ -96,6 +96,33 @@ public static class LocalSave
     public static void SetSettingInfo(LocalSettingInfo info)
     {
         string key = PREFS_DATA_SETTING;
+
+        SetLocalData(key, info);
+    }
+    #endregion
+
+    #region Character
+    public static LocalCharacterInfo GetLocalCharacterInfo()
+    {
+        LocalCharacterInfo info;
+
+        string key = PREFS_DATA_CHARACTER;
+
+        if (!HasKey(key))
+        {
+            info = new LocalCharacterInfo();
+            SetLocalCharacterInfo(info);
+        }
+        else
+        {
+            info = GetLocalData<LocalCharacterInfo>(key);
+        }
+
+        return info;
+    }
+    public static void SetLocalCharacterInfo(LocalCharacterInfo info)
+    {
+        string key = PREFS_DATA_CHARACTER;
 
         SetLocalData(key, info);
     }

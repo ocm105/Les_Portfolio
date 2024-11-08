@@ -2,25 +2,6 @@ using System;
 
 
 [Serializable]
-public class LocalVolumeInfo
-{
-    public float bgmVolumeInfo;
-    public float sfxVolumeInfo;
-
-    public bool isBGMVolume;
-    public bool isSFXVolume;
-
-    public LocalVolumeInfo()
-    {
-        bgmVolumeInfo = 1f;
-        sfxVolumeInfo = 1f;
-
-        isBGMVolume = true;
-        isSFXVolume = true;
-    }
-}
-
-[Serializable]
 public class LocalSettingInfo
 {
     public float bgmVolume;
@@ -40,6 +21,17 @@ public class LocalSettingInfo
 
         playerViewType = PlayerViewType.ShoulderView;
         languageType = LanguageType.Korean;
+    }
+}
+
+[Serializable]
+public class LocalCharacterInfo
+{
+    public CharacterType characterType;
+
+    public LocalCharacterInfo()
+    {
+        characterType = CharacterType.none;
     }
 }
 

@@ -78,8 +78,13 @@ public class TitleView : UIView
 
     private void PortfolioStart()
     {
-        // 씬이동
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
+        LocalCharacterInfo localCharacterInfo = LocalSave.GetLocalCharacterInfo();
+
+        if (localCharacterInfo.characterType == CharacterType.none)
+            LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
+        else
+            LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+
     }
     #endregion
 

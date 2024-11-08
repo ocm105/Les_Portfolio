@@ -14,10 +14,12 @@ public class PlayerInfo : MonoBehaviour
 
 
     [SerializeField] GameObject[] playerPrefabs;
+    [SerializeField] GameObject[] profilePlayers;
     private GameObject player;
     public GameObject _player { get { return player; } }
     public void SetPlayer(CharacterType type)
     {
+        profilePlayers[(int)type].SetActive(true);
         player = Instantiate(playerPrefabs[(int)type], Vector3.zero, Quaternion.identity, this.transform);
     }
 }

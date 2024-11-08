@@ -18,7 +18,7 @@ public class MainView : UIView
     protected override void OnFirstShow()
     {
         playerInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInfo>();
-        playerInfo.SetPlayer(CharacterType.Male);
+        playerInfo.SetPlayer(LocalSave.GetLocalCharacterInfo().characterType);
     }
     protected override void OnShow()
     {

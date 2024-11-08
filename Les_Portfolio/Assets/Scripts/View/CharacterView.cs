@@ -14,6 +14,8 @@ public class CharacterView : UIView
 
     private Animator selectAnimator;
 
+    private LocalCharacterInfo localCharacterInfo;
+
     public void Show()
     {
         ShowLayer();
@@ -27,6 +29,7 @@ public class CharacterView : UIView
     protected override void OnShow()
     {
         Init();
+        localCharacterInfo = LocalSave.GetLocalCharacterInfo();
     }
 
     private void Init()
@@ -51,14 +54,17 @@ public class CharacterView : UIView
             animValue = isActive == true ? (int)CharacterSceneState.Click : (int)CharacterSceneState.Unclick;
             animators[i].Rebind();
             animators[i].SetFloat("Select", animValue);
-            if (isActive) selectAnimator = animators[i];
 
+            if (isActive) selectAnimator = animators[i];
         }
+
+        localCharacterInfo.characterType = type;
     }
     private void OnClick_Select()
     {
         selectAnimator.Rebind();
         selectAnimator.SetFloat("Select", (int)CharacterSceneState.Select);
+        LocalSave.SetLocalCharacterInfo(localCharacterInfo);
         LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
     }
     #endregion
