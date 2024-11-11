@@ -1272,6 +1272,7 @@ GameObject:
   - component: {fileID: 4874599717111073511}
   - component: {fileID: 3912129228199559212}
   - component: {fileID: 3594783033588514806}
+  - component: {fileID: 1453111405768231120}
   m_Layer: 6
   m_Name: OHS03Polyart
   m_TagString: Untagged
@@ -1344,6 +1345,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1453111405768231120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6398441759206751997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.39174208, y: 1.4156286, z: 0.08912745}
+  m_Center: {x: 0.0000000449876, y: 0.5035896, z: -0.000000042633083}
 --- !u!1 &6457498203218769252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1787,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 7501135409433316810}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -2073,7 +2095,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 8627063020073033027}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
