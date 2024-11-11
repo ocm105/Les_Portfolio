@@ -12,6 +12,8 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] PlayerAniControl playerAniControl;
     public PlayerAniControl _playerAniControl { get { return playerAniControl; } }
 
+    [SerializeField] PlayerBattleControl playerBattleControl;
+    public PlayerBattleControl _playerBattleControl { get { return playerBattleControl; } }
 
     [SerializeField] GameObject[] playerPrefabs;
     [SerializeField] GameObject[] profilePlayers;

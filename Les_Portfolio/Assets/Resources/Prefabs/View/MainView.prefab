@@ -553,6 +553,7 @@ MonoBehaviour:
   BgmKey: BGM_MAIN
   joystick: {fileID: 446761752830672890}
   settingButton: {fileID: 7319128752742356974}
+  attackButton: {fileID: 3106561316547138540}
 --- !u!1 &2700924384110569449
 GameObject:
   m_ObjectHideFlags: 0

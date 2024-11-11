@@ -8,6 +8,7 @@ public class MainView : UIView
 {
     [SerializeField] Joystick joystick;
     [SerializeField] Button settingButton;
+    [SerializeField] Button attackButton;
 
     private PlayerInfo playerInfo;
 
@@ -24,6 +25,7 @@ public class MainView : UIView
     {
         playerInfo._playerMoveControl.SetJoystick(joystick);
         settingButton.onClick.AddListener(OnClick_SettingBtn);
+        attackButton.onClick.AddListener(OnClick_AttackBtn);
     }
 
     #region Event
@@ -31,6 +33,10 @@ public class MainView : UIView
     {
         PopupState popupState = Les_UIManager.Instance.Popup<SettingPopup>().Open();
         popupState.OnClose = p => Debug.Log("닫음");
+    }
+    private void OnClick_AttackBtn()
+    {
+        playerInfo._playerBattleControl.Attack();
     }
     #endregion
 }

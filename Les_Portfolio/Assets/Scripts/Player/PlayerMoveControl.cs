@@ -18,8 +18,8 @@ public class PlayerMoveControl : MonoBehaviour
     private void Awake()
     {
         playerInfo = this.GetComponent<PlayerInfo>();
-        characterController = this.GetComponent<CharacterController>();
         mainCam = playerInfo._mainCamera;
+        characterController = this.GetComponent<CharacterController>();
     }
 
     private void Init()
@@ -38,23 +38,30 @@ public class PlayerMoveControl : MonoBehaviour
         if (joystick == null)
             return;
 
-        movePostion.x = Mathf.Abs(joystick.Horizontal) >= 0.05 ? joystick.Horizontal : 0;
-        movePostion.z = Mathf.Abs(joystick.Vertical) >= 0.05 ? joystick.Vertical : 0;
+        switch (playerInfo._playerAniControl.playerAniState)
+        {
+            case PlayerAniState.Default:
+                movePostion.x = Mathf.Abs(joystick.Horizontal) >= 0.05 ? joystick.Horizontal : 0;
+                movePostion.z = Mathf.Abs(joystick.Vertical) >= 0.05 ? joystick.Vertical : 0;
 
 #if UNITY_EDITOR_WIN
-        movePostion.x += Input.GetAxis("Horizontal");
-        movePostion.z += Input.GetAxis("Vertical");
+                movePostion.x += Input.GetAxis("Horizontal");
+                movePostion.z += Input.GetAxis("Vertical");
 #endif
-        moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
+                moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
-        if (moveSpeed > 0)
-        {
-            lookPosition = Quaternion.LookRotation(movePostion).eulerAngles;
-            this.transform.rotation = Quaternion.Euler(Vector3.up * (lookPosition.y + mainCam.transform.eulerAngles.y)).normalized;
+                if (moveSpeed > 0)
+                {
+                    lookPosition = Quaternion.LookRotation(movePostion).eulerAngles;
+                    this.transform.rotation = Quaternion.Euler(Vector3.up * (lookPosition.y + mainCam.transform.eulerAngles.y)).normalized;
+                }
+
+                characterController.Move(this.transform.forward * speed * moveSpeed * Time.fixedDeltaTime);
+
+                playerInfo._playerAniControl.SetMoveValue(moveSpeed);
+                break;
+            default:
+                break;
         }
-
-        characterController.Move(this.transform.forward * speed * moveSpeed * Time.fixedDeltaTime);
-
-        playerInfo._playerAniControl.SetMoveValue(moveSpeed);
     }
 }

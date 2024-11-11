@@ -16,6 +16,7 @@ public enum PlayerViewType
 }
 #endregion
 
+#region System
 // 설명 타입
 public enum DescriptType
 {
@@ -23,7 +24,14 @@ public enum DescriptType
     Title = 1001,
 
 }
-
+public enum GAMEDATA_STATE
+{
+    CONNECTDATAERROR,
+    PROTOCOLERROR,
+    NODATA,
+    REQUESTSUCCESS
+}
+#endregion
 public enum CharacterSceneState
 {
     Unclick = 0,
@@ -41,15 +49,17 @@ public enum CharacterType
 public enum PlayerAniState
 {
     Default,
+    Attack,
+    Skill,
     Victory
 }
 
-
-
-public enum GAMEDATA_STATE
+public enum PlayerAttackLevel
 {
-    CONNECTDATAERROR,
-    PROTOCOLERROR,
-    NODATA,
-    REQUESTSUCCESS
+    Attack01 = 0,
+    Attack02,
+    Max
 }
+
+
+
