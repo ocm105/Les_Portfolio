@@ -51,18 +51,16 @@ public class PlayerMoveControl : MonoBehaviour
                 winX = Input.GetAxis("Horizontal");
                 winZ = Input.GetAxis("Vertical");
 
-                movePostion = this.transform.right * mobX + this.transform.forward * mobZ;
-
-#if UNITY_EDITOR_WIN
-                movePostion.x += winX;
-                movePostion.z += winZ;
-#endif
-
-                moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
                 switch (playerInfo.cinemachineControl.playerViewType)
                 {
                     case PlayerViewType.FPSView:
+                        movePostion = this.transform.right * mobX + this.transform.forward * mobZ;
+#if UNITY_EDITOR_WIN
+                        movePostion.x += winX;
+                        movePostion.z += winZ;
+#endif
+                        moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
                         this.transform.rotation = Quaternion.Euler(0, fpsViewTarget.transform.eulerAngles.y, 0);
                         characterController.Move(movePostion * speed * Time.fixedDeltaTime);
@@ -70,6 +68,13 @@ public class PlayerMoveControl : MonoBehaviour
 
                     case PlayerViewType.QuarterView:
                     case PlayerViewType.ShoulderView:
+                        movePostion.x = mobX;
+                        movePostion.z = mobZ;
+#if UNITY_EDITOR_WIN
+                        movePostion.x += winX;
+                        movePostion.z += winZ;
+#endif
+                        moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
                         if (moveSpeed > 0)
                         {
