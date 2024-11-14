@@ -7,6 +7,8 @@ public class CinemachineControl : MonoBehaviour
     [Tooltip("FPSView, QuarterView, ShoulderView")]
     [SerializeField] GameObject[] views;
 
+    public PlayerViewType playerViewType { get; private set; }
+
     private void Start()
     {
         SetActiveCinemachine(LocalSave.GetSettingInfo().playerViewType);
@@ -22,8 +24,7 @@ public class CinemachineControl : MonoBehaviour
             views[i].SetActive(isActive);
         }
 
-        // localSettingInfo.playerViewType = type;
-        // LocalSave.SetSettingInfo(localSettingInfo);
+        playerViewType = type;
     }
 
     public void OnChange_Cinemachine(PlayerViewType type)
