@@ -44,10 +44,10 @@ public class DescriptPopup : UIPopup
     }
     private IEnumerator SpeechText(string key)
     {
+        string text = string.Empty;
         okButton.image.raycastTarget = false;
 
         string msg = LocalizationManager.Instance.GetLocalizeText(key);
-        string text = string.Empty;
         for (int i = 0; i < msg.Length; i++)
         {
             yield return new WaitForSeconds(0.1f);

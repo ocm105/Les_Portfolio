@@ -1,16 +1,17 @@
 using System.Collections;
 using UISystem;
-using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 
 public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
 {
-    private StringTable localizationTable = null;
-    private bool isChanging = false;
+    private StringTable[] localizationTables = null;
     const string tableName = "Localization Table";
 
+    private int localIndex = 0;
+    private bool isChanging = false;
     private bool isCompleted = false;
 
     protected override void OnAwakeSingleton()
@@ -23,19 +24,27 @@ public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
     {
         if (isCompleted == false)
         {
+            localizationTables = new StringTable[(int)LanguageType.Max];
             yield return LocalizationSettings.InitializationOperation;
 
-            var tableOp = LocalizationSettings.StringDatabase.GetTableAsync(tableName);
-            yield return new WaitUntil(() => tableOp.IsDone);
+            for (int i = 0; i < localizationTables.Length; i++)
+            {
+                var tableOp = LocalizationSettings.StringDatabase.GetTableAsync(tableName, LocalizationSettings.AvailableLocales.Locales[i]);
+                yield return tableOp;
 
-            localizationTable = tableOp.Result;
-            isCompleted = tableOp.IsDone;
+                if (tableOp.Status == AsyncOperationStatus.Succeeded)
+                {
+                    localizationTables[i] = tableOp.Result;
+                }
+            }
+
+            isCompleted = true;
         }
     }
 
     public string GetLocalizeText(string key)
     {
-        var entry = localizationTable?.GetEntry(key);
+        var entry = localizationTables[localIndex]?.GetEntry(key);
         if (entry != null)
             return entry.GetLocalizedString();
 
@@ -48,13 +57,14 @@ public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
 
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+        localIndex = index;
 
         isChanging = false;
     }
 
     public void ChangeLanguage(int index)
     {
-        if (!isChanging)
+        if (isChanging)
             return;
 
         StartCoroutine(_ChangeLanguage(index));

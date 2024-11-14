@@ -6,6 +6,7 @@ public enum LanguageType
 {
     Korean = 0,
     English,
+    Max,
 }
 
 public enum PlayerViewType

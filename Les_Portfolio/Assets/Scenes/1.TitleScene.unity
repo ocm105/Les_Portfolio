@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleView
       objectReference: {fileID: 0}
-    - target: {fileID: 4432737424386256086, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8525683783586575414, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

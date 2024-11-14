@@ -37,8 +37,8 @@ public class TitleView : UIView
     private IEnumerator DataLoad()
     {
         // Localization Data Load
+        LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
         yield return StartCoroutine(LocalizationManager.Instance.LoadData());
-        LocalizationManager.Instance.ChangeLanguage((int)LanguageType.Korean);
         Debug.Log($"<color=red>LocalizationManager Completed</color>");
 
         startText.text = LocalizationManager.Instance.GetLocalizeText("Title_load");

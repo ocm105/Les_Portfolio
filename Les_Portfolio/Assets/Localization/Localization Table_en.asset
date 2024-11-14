@@ -19,9 +19,9 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 3511652753408
-    m_Localized: 'Unity Portfolio
+    m_Localized: 'unity portfolio
 
-      Lee euisu'
+      Lee Eui-soo'
     m_Metadata:
       m_Items: []
   - m_Id: 5853668220928
@@ -33,25 +33,47 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 91537485635584
-    m_Localized: 'Hello.
-
-      I''m Lee euisu, a Unity client developer.'
+    m_Localized: "hello. \nThis is Unity client developer Lee Eui-su."
     m_Metadata:
       m_Items: []
   - m_Id: 91537489829888
-    m_Localized: Let's start the portfolio.
+    m_Localized: Let's start with the portfolio.
     m_Metadata:
       m_Items: []
   - m_Id: 2865996294561792
-    m_Localized: Male
+    m_Localized: man
     m_Metadata:
       m_Items: []
   - m_Id: 2865996294561793
-    m_Localized: Female
+    m_Localized: female
     m_Metadata:
       m_Items: []
   - m_Id: 2865996294561794
     m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2865996269395968
+    m_Localized: character selection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10911173420556288
+    m_Localized: Preferences
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10911173466693632
+    m_Localized: BGM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10911173466693633
+    m_Localized: SFX
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10911173466693634
+    m_Localized: Game View
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10911173466693635
+    m_Localized: Language
     m_Metadata:
       m_Items: []
   references:
