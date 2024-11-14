@@ -39,7 +39,6 @@ public class SettingPopup : UIPopup
     [SerializeField] Button exitButton;
     private LocalSettingInfo localSettingInfo;
 
-
     public PopupState Open()
     {
         ShowLayer();
@@ -140,10 +139,20 @@ public class SettingPopup : UIPopup
         localSettingInfo.isSfx = isSfx;
 
         localSettingInfo.playerViewType = playerViewType;
+
         localSettingInfo.languageType = languageType;
 
-        LocalSave.SetSettingInfo(localSettingInfo);
         OnResult(PopupResults.Close);
+    }
+
+    protected override void OnResult(PopupResults result)
+    {
+        if (result == PopupResults.Close)
+        {
+            state.ResultParam = localSettingInfo;
+        }
+
+        base.OnResult(result);
     }
     #endregion
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LoadingManager : SingletonMonoBehaviour<LoadingManager>
 {
@@ -23,19 +24,25 @@ public class LoadingManager : SingletonMonoBehaviour<LoadingManager>
     }
 
     #region Fade
-    public void SetFadeIn()
+    public void SetFadeIn(Action call = null)
     {
         fadeImage.DOColor(fadeInColor, fadeTime).onComplete =
         () =>
         {
             isFade = false;
             fadeCanvas.SetActive(false);
+            call.Invoke();
         };
     }
-    public void SetFadeOut()
+    public void SetFadeOut(Action call = null)
     {
         fadeCanvas.SetActive(true);
-        fadeImage.DOColor(fadeOutColor, fadeTime).onComplete = () => isFade = true;
+        fadeImage.DOColor(fadeOutColor, fadeTime).onComplete =
+        () =>
+        {
+            isFade = true;
+            call.Invoke();
+        };
     }
     #endregion
 

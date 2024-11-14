@@ -11,6 +11,7 @@ public class GameDataManager : SingletonMonoBehaviour<GameDataManager>
     protected override void OnAwakeSingleton()
     {
         base.OnAwakeSingleton();
+        DontDestroyOnLoad(this);
     }
 
     public IEnumerator LoadData()
