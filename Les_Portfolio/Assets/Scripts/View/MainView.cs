@@ -54,7 +54,6 @@ public class MainView : UIView
             {
                 LocalizationManager.Instance.ChangeLanguage((int)settingInfo.languageType);
                 localSettingInfo.languageType = settingInfo.languageType;
-                LoadingManager.Instance.SceneLoad(Constants.Scene.Title);
             }
             LocalSave.SetSettingInfo(localSettingInfo);
         };
