@@ -25,10 +25,10 @@ public class PlayerInfo : MonoBehaviour
     private void Awake()
     {
         cinemachineControl = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<CinemachineControl>();
-        SetPlayer(LocalSave.GetLocalCharacterInfo().characterType);
+        SetPlayer(LocalSave.GetLocalPlayerInfo().playerType);
     }
 
-    private void SetPlayer(CharacterType type)
+    private void SetPlayer(PlayerType type)
     {
         profilePlayers[(int)type].SetActive(true);
         player = Instantiate(playerPrefabs[(int)type], Vector3.zero, Quaternion.identity, this.transform);

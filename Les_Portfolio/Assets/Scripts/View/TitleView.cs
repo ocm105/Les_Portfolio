@@ -78,9 +78,9 @@ public class TitleView : UIView
 
     private void PortfolioStart()
     {
-        LocalCharacterInfo localCharacterInfo = LocalSave.GetLocalCharacterInfo();
+        LocalPlayerInfo localplayerInfo = LocalSave.GetLocalPlayerInfo();
 
-        if (localCharacterInfo.characterType == CharacterType.none)
+        if (localplayerInfo.playerType == PlayerType.none)
             LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
         else
             LoadingManager.Instance.SceneLoad(Constants.Scene.Main);

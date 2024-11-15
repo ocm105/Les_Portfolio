@@ -25,13 +25,13 @@ public class LocalSettingInfo
 }
 
 [Serializable]
-public class LocalCharacterInfo
+public class LocalPlayerInfo
 {
-    public CharacterType characterType;
+    public PlayerType playerType;
 
-    public LocalCharacterInfo()
+    public LocalPlayerInfo()
     {
-        characterType = CharacterType.none;
+        playerType = PlayerType.none;
     }
 }
 

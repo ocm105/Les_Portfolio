@@ -14,7 +14,7 @@ public class CharacterView : UIView
 
     private Animator selectAnimator;
 
-    private LocalCharacterInfo localCharacterInfo;
+    private LocalPlayerInfo localPlayerInfo;
 
     public void Show()
     {
@@ -22,14 +22,14 @@ public class CharacterView : UIView
     }
     protected override void OnFirstShow()
     {
-        characterSelectMale.onClick.AddListener(() => OnClick_CharacterSelect(CharacterType.Male));
-        characterSelectFemale.onClick.AddListener(() => OnClick_CharacterSelect(CharacterType.Female));
+        characterSelectMale.onClick.AddListener(() => OnClick_CharacterSelect(PlayerType.Male));
+        characterSelectFemale.onClick.AddListener(() => OnClick_CharacterSelect(PlayerType.Female));
         selectButton.onClick.AddListener(OnClick_Select);
     }
     protected override void OnShow()
     {
         Init();
-        localCharacterInfo = LocalSave.GetLocalCharacterInfo();
+        localPlayerInfo = LocalSave.GetLocalPlayerInfo();
     }
 
     private void Init()
@@ -42,7 +42,7 @@ public class CharacterView : UIView
     }
 
     #region Event
-    private void OnClick_CharacterSelect(CharacterType type)
+    private void OnClick_CharacterSelect(PlayerType type)
     {
         bool isActive = false;
         float animValue = 0;
@@ -58,13 +58,13 @@ public class CharacterView : UIView
             if (isActive) selectAnimator = animators[i];
         }
 
-        localCharacterInfo.characterType = type;
+        localPlayerInfo.playerType = type;
     }
     private void OnClick_Select()
     {
         selectAnimator.Rebind();
         selectAnimator.SetFloat("Select", (int)CharacterSceneState.Select);
-        LocalSave.SetLocalCharacterInfo(localCharacterInfo);
+        LocalSave.SetLocalPlayerInfo(localPlayerInfo);
         LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
     }
     #endregion

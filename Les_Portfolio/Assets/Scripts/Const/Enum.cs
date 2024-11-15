@@ -35,6 +35,7 @@ public enum GAMEDATA_STATE
     REQUESTSUCCESS
 }
 #endregion
+
 public enum CharacterSceneState
 {
     Unclick = 0,
@@ -42,7 +43,7 @@ public enum CharacterSceneState
     Select
 }
 
-public enum CharacterType
+public enum PlayerType
 {
     none = -1,
     Male = 0,

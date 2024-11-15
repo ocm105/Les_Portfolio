@@ -6,7 +6,7 @@ using System.IO;
 public static class LocalSave
 {
     private const string PREFS_DATA_SETTING = "PREFS_DATA_SETTING";
-    private const string PREFS_DATA_CHARACTER = "PREFS_DATA_CHARACTER";
+    private const string PREFS_DATA_PLAYER = "PREFS_DATA_PLAYER";
 
     #region Base
     private static T GetLocalData<T>(string key)
@@ -102,27 +102,27 @@ public static class LocalSave
     #endregion
 
     #region Character
-    public static LocalCharacterInfo GetLocalCharacterInfo()
+    public static LocalPlayerInfo GetLocalPlayerInfo()
     {
-        LocalCharacterInfo info;
+        LocalPlayerInfo info;
 
-        string key = PREFS_DATA_CHARACTER;
+        string key = PREFS_DATA_PLAYER;
 
         if (!HasKey(key))
         {
-            info = new LocalCharacterInfo();
-            SetLocalCharacterInfo(info);
+            info = new LocalPlayerInfo();
+            SetLocalPlayerInfo(info);
         }
         else
         {
-            info = GetLocalData<LocalCharacterInfo>(key);
+            info = GetLocalData<LocalPlayerInfo>(key);
         }
 
         return info;
     }
-    public static void SetLocalCharacterInfo(LocalCharacterInfo info)
+    public static void SetLocalPlayerInfo(LocalPlayerInfo info)
     {
-        string key = PREFS_DATA_CHARACTER;
+        string key = PREFS_DATA_PLAYER;
 
         SetLocalData(key, info);
     }
