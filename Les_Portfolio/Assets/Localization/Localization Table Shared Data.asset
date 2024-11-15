@@ -63,12 +63,40 @@ MonoBehaviour:
     m_Key: SettingPopup_language
     m_Metadata:
       m_Items: []
-  - m_Id: 91537485635584
-    m_Key: Descript_Introduct
+  - m_Id: 11196658894282752
+    m_Key: Descript_Introduct1
     m_Metadata:
       m_Items: []
   - m_Id: 91537489829888
     m_Key: Descript_Introduct2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614400
+    m_Key: Descript_Character1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614401
+    m_Key: Descript_Character2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614402
+    m_Key: Descript_Main1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808704
+    m_Key: Descript_Main2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808705
+    m_Key: Descript_Main3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808706
+    m_Key: Descript_Main4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808707
+    m_Key: Descript_Main5
     m_Metadata:
       m_Items: []
   m_Metadata:

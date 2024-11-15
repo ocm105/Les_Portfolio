@@ -23,6 +23,8 @@ public enum DescriptType
 {
     NULL = -1,
     Title = 1001,
+    Character = 2001,
+    Mian = 3001,
 
 }
 public enum GAMEDATA_STATE

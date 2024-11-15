@@ -38,7 +38,7 @@ public class CharacterView : UIView
         {
             animators[i].SetFloat("Select", (int)CharacterSceneState.Unclick);
         }
-
+        Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Character);
     }
 
     #region Event

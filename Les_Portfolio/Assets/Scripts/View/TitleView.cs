@@ -59,7 +59,7 @@ public class TitleView : UIView
         startText.gameObject.SetActive(false);
 
         PopupState popupState = Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
-        popupState.OnOK = p => PortfolioStart();
+        popupState.OnClose = p => PortfolioStart();
     }
 
     private void Tween_Fadein(TextMeshProUGUI text)

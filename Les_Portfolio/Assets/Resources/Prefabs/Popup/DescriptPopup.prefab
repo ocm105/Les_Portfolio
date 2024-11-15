@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 782077259775445554}
   - component: {fileID: 2592992028178667662}
   m_Layer: 5
-  m_Name: OkButton
+  m_Name: NextButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -543,7 +543,7 @@ MonoBehaviour:
   TopMost: 0
   CancelOnBack: 1
   descriptsText: {fileID: 1993616860447294388}
-  okButton: {fileID: 2592992028178667662}
+  nextButton: {fileID: 2592992028178667662}
 --- !u!1 &9216906341154728569
 GameObject:
   m_ObjectHideFlags: 0

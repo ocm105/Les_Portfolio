@@ -9,7 +9,7 @@ using System;
 public class DescriptPopup : UIPopup
 {
     [SerializeField] TextMeshProUGUI descriptsText;
-    [SerializeField] Button okButton;
+    [SerializeField] Button nextButton;
 
     private int descriptIndex;
 
@@ -22,7 +22,7 @@ public class DescriptPopup : UIPopup
     }
     protected override void OnFirstShow()
     {
-        okButton.onClick.AddListener(OnClick_OkBtn);
+        nextButton.onClick.AddListener(OnClick_NextBtn);
     }
     protected override void OnShow() { }
 
@@ -32,10 +32,10 @@ public class DescriptPopup : UIPopup
         StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key));
     }
     #region Event
-    private void OnClick_OkBtn()
+    private void OnClick_NextBtn()
     {
         if (GameDataManager.Instance.discription_Data[descriptIndex].next_index == (int)DescriptType.NULL)
-            OnResult(PopupResults.OK);
+            OnResult(PopupResults.Close);
         else
         {
             descriptIndex++;
@@ -45,17 +45,16 @@ public class DescriptPopup : UIPopup
     private IEnumerator SpeechText(string key)
     {
         string text = string.Empty;
-        okButton.image.raycastTarget = false;
+        nextButton.image.raycastTarget = false;
 
         string msg = LocalizationManager.Instance.GetLocalizeText(key);
         for (int i = 0; i < msg.Length; i++)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             text += msg[i];
             descriptsText.text = text;
         }
-        okButton.image.raycastTarget = true;
-
+        nextButton.image.raycastTarget = true;
     }
 
     #endregion

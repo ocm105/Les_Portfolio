@@ -32,10 +32,6 @@ MonoBehaviour:
     m_Localized: Downloading resources...
     m_Metadata:
       m_Items: []
-  - m_Id: 91537485635584
-    m_Localized: "hello. \nThis is Unity client developer Lee Eui-su."
-    m_Metadata:
-      m_Items: []
   - m_Id: 91537489829888
     m_Localized: Let's start with the portfolio.
     m_Metadata:
@@ -74,6 +70,46 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10911173466693635
     m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658894282752
+    m_Localized: "hello. \nThis is Unity client developer Lee Eui-su."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614400
+    m_Localized: 'The character consists of two people,
+
+      When selected, it
+      will be saved locally.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614401
+    m_Localized: "Data stored locally \nEncode and save with Base64."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658944614402
+    m_Localized: Players primarily use the joystick to move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808704
+    m_Localized: At the top left is a 3D icon for the selected character.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808705
+    m_Localized: 'There is an options button at the top right,
+
+      You can choose
+      sound, game view, and language.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808706
+    m_Localized: "The game point is FPS, Quarter, Shoulder,\nThe languages \u200B\u200Bare
+      Korean and English and can be changed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11196658948808707
+    m_Localized: "When you close the options window, the set value is stored locally.
+      \nIt is encoded and saved in Base64."
     m_Metadata:
       m_Items: []
   references:
