@@ -43,6 +43,7 @@ public enum CharacterSceneState
     Select
 }
 
+#region Player
 public enum PlayerType
 {
     none = -1,
@@ -64,6 +65,23 @@ public enum PlayerAttackLevel
     Attack02,
     Max
 }
+#endregion
 
+#region Monster
+public enum MonsterType
+{
+    none = -1,
+    Slime = 1,
+    MetalSlime = 2,
+    VikingSlime = 3,
+}
+public enum MonsterAniState
+{
+    Default,
+    Attack,
+    Hit,
+    Die
+}
+#endregion
 
 

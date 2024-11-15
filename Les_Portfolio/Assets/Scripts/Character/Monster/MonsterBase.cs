@@ -3,163 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[System.Serializable]
-public class Enemy
-{
-    public float hp;      // 체력
-    public float atk;     // 공격력
-    public float atkSpeed; // 공격속도
-    public float def;     // 방어력
-    public float speed; // 스피드
-}
 
 public class MonsterBase : MonoBehaviour
 {
-    // const float NOMALIZE = 0.01f;
+    protected NavMeshAgent agent;
+    protected Animator animator;
 
-    // const float DIE_DELAY = 3f;
-    // [SerializeField] Enemy enemy;
-    // public Enemy Enemy { set { enemy = value; } }
+    protected MonsterData monsterData;
 
-    // [SerializeField] GameObject hp;
+    protected MonsterAniState monsterAniState;
 
-    // private NavMeshAgent agent;
-    // private Animator animator;
+    private void Start()
+    {
+        Init();
+    }
+    protected virtual void Init()
+    {
+        monsterData = GetMonsterData(MonsterType.none);
+        AnimationChanger(MonsterAniState.Default);
+    }
+    private MonsterData GetMonsterData(MonsterType monsterType)
+    {
+        return GameDataManager.Instance.monster_Data[(int)monsterType];
+    }
 
-    // [SerializeField] NpcState npcState;
-    // private NpcAniState npcAniState;
+    #region Animation
+    protected virtual void AnimationChanger(MonsterAniState state)
+    {
+        switch (state)
+        {
+            case MonsterAniState.Default:
+                animator.Play("Move_Blend");
+                break;
+            case MonsterAniState.Attack:
+                animator.Play("Attack");
+                break;
+            case MonsterAniState.Hit:
+                animator.Play("Hit");
+                break;
+            case MonsterAniState.Die:
+                animator.Play("Die");
+                break;
+            default:
+                animator.Play(state.ToString(), 0, 0);
+                break;
+        }
+        monsterAniState = state;
+    }
+    #endregion
 
-    // public GameObject Player { private get; set; }
+    #region Event
+    public virtual void Attack()
+    {
 
-    // private bool isAttack = false;
+    }
+    public virtual void Hit()
+    {
 
-    // private void Awake()
-    // {
-    //     agent = GetComponent<NavMeshAgent>();
-    //     animator = GetComponent<Animator>();
-    // }
+    }
+    public virtual void Die()
+    {
 
-    // public void NPC_Start()
-    // {
-    //     isAttack = false;
-    //     agent.speed = enemy.speed;
+    }
 
-    //     SetNPCState(NpcState.alive);
-    //     Move(Player.transform.position);
-    // }
+    // public virtual void Skill() { }
+    #endregion
 
-    // private void Update()
-    // {
-    //     switch (npcState)
-    //     {
-    //         case NpcState.alive:
-    //             if (MoveCheck())
-    //             {
-    //                 isAttack = false;
-    //                 Move(Player.transform.position);
-    //             }
-    //             else
-    //             {
-    //                 if (!agent.isStopped)
-    //                 {
-    //                     agent.isStopped = true;
-    //                     agent.ResetPath();
-    //                 }
-    //                 Attack();
-    //             }
-    //             break;
-    //         case NpcState.stop:
-    //             break;
-    //         case NpcState.die:
-    //             break;
-    //     }
-    // }
 
-    // private void SetNPCState(NpcState state)
-    // {
-    //     npcState = state;
-    // }
-
-    // private void AnimationChanger(NpcAniState state)
-    // {
-    //     npcAniState = state;
-    //     if (!animator.GetCurrentAnimatorStateInfo(0).IsName(state.ToString()))
-    //     {
-    //         animator.Play(state.ToString(), 0, 0);
-    //     }
-    // }
-
-    // #region Move
-    // private bool MoveCheck()
-    // {
-    //     if (agent.remainingDistance <= agent.stoppingDistance)
-    //         return false;
-    //     else
-    //         return true;
-    // }
-    // private void Move(Vector3 position)
-    // {
-    //     agent.SetDestination(position);
-    //     AnimationChanger(NpcAniState.Walk);
-    // }
-    // #endregion
-
-    // #region Attack
-    // private void Attack()
-    // {
-    //     isAttack = true;
-    //     StartCoroutine(AttackCoroutine());
-    // }
-    // private IEnumerator AttackCoroutine()
-    // {
-    //     while (isAttack)
-    //     {
-    //         AnimationChanger(NpcAniState.Attack01);
-    //         yield return new WaitForSeconds(enemy.atkSpeed);
-    //     }
-    // }
-    // #endregion
-
-    // #region Hit
-    // public void Hit(float damege)
-    // {
-    //     float hpClamp = hp.transform.localScale.x - (damege * enemy.def * NOMALIZE);
-
-    //     hp.transform.localScale = new Vector3(Mathf.Clamp(hpClamp, 0, 1), 1);
-    // }
-    // #endregion
-
-    // #region Die
-    // private void Die()
-    // {
-    //     StartCoroutine(DieCoroutine());
-    // }
-    // private IEnumerator DieCoroutine()
-    // {
-    //     // AnimationChanger(NpcAniState.DieStart);
-    //     yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-    //     yield return new WaitForSeconds(DIE_DELAY);
-    //     AnimationChanger(NpcAniState.DieEnd);
-
-    //     // 다시 풀에 넣기
-    //     this.gameObject.SetActive(false);
-    // }
-    // #endregion
-
-    // #region Debug
-    // // private void OnDrawGizmos()
-    // // {
-    // //     Gizmos.color = Color.red;
-    // //     if (agent.remainingDistance > agent.stoppingDistance)
-    // //     {
-    // //         for (int i = 0; i < agent.path.corners.Length - 1; i++)
-    // //         {
-    // //             Gizmos.DrawLine(agent.path.corners[i], agent.path.corners[i + 1]);
-    // //             Gizmos.DrawSphere(agent.path.corners[i + 1], .5f);
-    // //         }
-
-    // //         Gizmos.DrawSphere(agent.pathEndPosition, 1f);
-    // //     }
-    // // }
-    // #endregion
 }
