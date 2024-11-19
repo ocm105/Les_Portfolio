@@ -73,8 +73,7 @@ public enum MonsterType
 {
     none = -1,
     Slime = 1,
-    MetalSlime = 2,
-    VikingSlime = 3,
+    Turtle = 2,
     Max
 }
 public enum MonsterAniState

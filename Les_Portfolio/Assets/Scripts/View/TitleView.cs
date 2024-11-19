@@ -87,7 +87,7 @@ public class TitleView : UIView
         if (localplayerInfo.playerType == PlayerType.none)
             LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
         else
-            LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+            LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
 
     }
     #endregion

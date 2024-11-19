@@ -18,21 +18,7 @@ MonoBehaviour:
   m_GUID: b6ad628aa6bcea7449158d3ba7f11784
   m_SerializeEntries:
   - m_GUID: 99ce05d4f9953e34ab10f661a8a92cb6
-    m_Address: Slime_01
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fbx
-    - All
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: be7f8132948b84f4bb44f2652d4bb95e
-    m_Address: Slime_02
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Fbx
-    - All
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b88257c69171ced4c9da8e70bede6f28
-    m_Address: Slime_03
+    m_Address: Slime
     m_ReadOnly: 0
     m_SerializedLabels:
     - Fbx
@@ -61,6 +47,13 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09ce9f5014e21c14f937f6a7f2c1e8d4
     m_Address: MaleCharacter
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Fbx
+    - All
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59eba718dd116044486069c61d38613d
+    m_Address: Turtle
     m_ReadOnly: 0
     m_SerializedLabels:
     - Fbx
