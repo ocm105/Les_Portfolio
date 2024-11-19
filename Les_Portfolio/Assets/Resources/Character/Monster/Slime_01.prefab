@@ -62,7 +62,7 @@ Transform:
   m_Children:
   - {fileID: 2358807489010691508}
   m_Father: {fileID: 2458001864020904692}
-  m_LocalEulerAnglesHint: {x: -13.509398, y: 0.088569045, z: -12.456054}
+  m_LocalEulerAnglesHint: {x: 3.7062094, y: -0.00069664203, z: -11.959372}
 --- !u!1 &2226219172587323500
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ Transform:
   m_Children:
   - {fileID: 690222351089603692}
   m_Father: {fileID: 2458001864020904692}
-  m_LocalEulerAnglesHint: {x: -26.495983, y: -0.051245537, z: 12.172892}
+  m_LocalEulerAnglesHint: {x: 3.2915273, y: 0.00064804265, z: 11.959448}
 --- !u!1 &4419260869142033511
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +221,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4961782363215469545}
   - component: {fileID: 6014744938811646243}
+  - component: {fileID: 6806008843384987740}
   - component: {fileID: 7858221783752605066}
+  - component: {fileID: 3733976262281110491}
   m_Layer: 0
   m_Name: Slime_01
   m_TagString: Untagged
@@ -267,6 +269,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &6806008843384987740
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419260869142033511}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!195 &7858221783752605066
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -289,6 +318,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
+--- !u!114 &3733976262281110491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4419260869142033511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d797b52b9ca16458383d7eb579fa10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpBar: {fileID: 2894485581115516052}
 --- !u!1 &7618326543533747145
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +463,7 @@ Transform:
   - {fileID: 6337856173641883770}
   - {fileID: 4325456187224805740}
   m_Father: {fileID: 5188398141735239620}
-  m_LocalEulerAnglesHint: {x: 81.788864, y: -5.0400214, z: -5.040023}
+  m_LocalEulerAnglesHint: {x: 89.93147, y: -0.000013680101, z: 0}
 --- !u!65 &3320857773956523704
 BoxCollider:
   m_ObjectHideFlags: 0

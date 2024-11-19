@@ -11,6 +11,7 @@ public class MonsterData
     public MonsterType name;// 이름
     public float hp;        // 체력
     public float atk;       // 공격력
+    public float atkspeed;  // 공격속도
     public float def;       // 방어력
     public float speed;     // 스피드
 }

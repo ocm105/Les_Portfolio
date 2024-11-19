@@ -77,9 +77,17 @@ public enum MonsterType
 }
 public enum MonsterAniState
 {
-    Default,
+    Idle,
+    Walk,
     Attack,
     Hit,
+    Die
+}
+
+public enum MonsterState
+{
+    Alive,
+    Stop,
     Die
 }
 #endregion
