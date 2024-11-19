@@ -24,7 +24,7 @@ public enum DescriptType
     NULL = -1,
     Title = 1001,
     Character = 2001,
-    Mian = 3001,
+    Main = 3001,
 
 }
 public enum GAMEDATA_STATE
@@ -48,7 +48,8 @@ public enum PlayerType
 {
     none = -1,
     Male = 0,
-    Female
+    Female,
+    Max
 }
 
 public enum PlayerAniState
@@ -74,6 +75,7 @@ public enum MonsterType
     Slime = 1,
     MetalSlime = 2,
     VikingSlime = 3,
+    Max
 }
 public enum MonsterAniState
 {

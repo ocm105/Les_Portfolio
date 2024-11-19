@@ -27,7 +27,7 @@ public class MainView : UIView
     protected override void OnShow()
     {
         playerInfo._playerMoveControl.SetJoystick(joystick);
-        Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Mian);
+        Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Main);
     }
 
     #region Event

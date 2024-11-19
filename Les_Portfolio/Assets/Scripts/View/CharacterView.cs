@@ -36,11 +36,11 @@ public class CharacterView : UIView
 
     private void Init()
     {
-        animators = new Animator[2];
+        animators = new Animator[(int)PlayerType.Max];
         GameObject male = Instantiate(AddressableManager.Instance.GetFBX("MaleCharacter"), malePos);
-        animators[0] = male.GetComponent<Animator>();
+        animators[(int)PlayerType.Male + 1] = male.GetComponent<Animator>();
         GameObject female = Instantiate(AddressableManager.Instance.GetFBX("FemaleCharacter"), femalePos);
-        animators[1] = female.GetComponent<Animator>();
+        animators[(int)PlayerType.Female + 1] = female.GetComponent<Animator>();
 
         for (int i = 0; i < animators.Length; i++)
         {
