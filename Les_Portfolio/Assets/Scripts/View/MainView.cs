@@ -9,6 +9,7 @@ public class MainView : UIView
     [SerializeField] Joystick joystick;
     [SerializeField] Button settingButton;
     [SerializeField] Button attackButton;
+    [SerializeField] Button gameStartButton;
 
     private PlayerInfo playerInfo;
     private CinemachineControl cinemachineControl;
@@ -23,6 +24,7 @@ public class MainView : UIView
         cinemachineControl = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<CinemachineControl>();
         settingButton.onClick.AddListener(OnClick_SettingBtn);
         attackButton.onClick.AddListener(OnClick_AttackBtn);
+        gameStartButton.onClick.AddListener(OnClick_GameStartBtn);
     }
     protected override void OnShow()
     {
@@ -58,6 +60,11 @@ public class MainView : UIView
             }
             LocalSave.SetSettingInfo(localSettingInfo);
         };
+    }
+
+    private void OnClick_GameStartBtn()
+    {
+        LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
     }
 
     private void OnClick_AttackBtn()

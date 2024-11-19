@@ -57,7 +57,7 @@ public class LoadingManager : SingletonMonoBehaviour<LoadingManager>
         SetFadeOut();
         yield return new WaitUntil(() => isFade == true);
 
-        AsyncOperation load_op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        AsyncOperation load_op = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         load_op.allowSceneActivation = false;
 
         yield return new WaitUntil(() => load_op.progress >= 0.9f);
@@ -66,7 +66,7 @@ public class LoadingManager : SingletonMonoBehaviour<LoadingManager>
 
         yield return null;
 
-        SceneManager.UnloadSceneAsync(currentSceneName);
+        // SceneManager.UnloadSceneAsync(currentSceneName);
         SetFadeIn();
         yield return new WaitUntil(() => isFade == false);
 

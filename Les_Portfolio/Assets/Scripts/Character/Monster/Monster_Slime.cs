@@ -7,7 +7,7 @@ public class Monster_Slime : MonsterBase
 
     protected override void Start()
     {
-        Init(MonsterType.Slime);
+        SetMonsterInfo(MonsterType.Slime);
     }
 
     protected override void AnimationChanger(MonsterAniState state)
@@ -18,13 +18,5 @@ public class Monster_Slime : MonsterBase
     public override void Attack()
     {
         base.Attack();
-    }
-    public override void Die()
-    {
-        base.Die();
-    }
-    public override void Stop()
-    {
-        base.Stop();
     }
 }

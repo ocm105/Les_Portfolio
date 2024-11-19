@@ -10,6 +10,7 @@ public class MonsterBase : MonoBehaviour, IDamage
     protected MonsterData monsterData;
     protected MonsterState monsterState;
     protected MonsterAniState monsterAniState;
+    public MonsterPool monsterPool { get; set; }
 
     protected Animator animator;
     protected NavMeshAgent agent;
@@ -28,23 +29,29 @@ public class MonsterBase : MonoBehaviour, IDamage
 
     protected virtual void Start()
     {
-        Init(MonsterType.none);
+        SetMonsterInfo(MonsterType.none);
     }
-    protected void Init(MonsterType monsterType)
+    public void Init()
     {
-        monsterData = GetMonsterData(monsterType);
-        agent.speed = monsterData.speed;
-
+        agent.enabled = true;
         atkTime = 0;
         damage = 0;
         isAttack = false;
+        hpBar.transform.localScale = Vector3.one;
+        this.transform.localPosition = Vector3.zero;
         monsterState = MonsterState.Alive;
         AnimationChanger(MonsterAniState.Idle);
+        Move(target.transform.position);
     }
 
-    protected MonsterData GetMonsterData(MonsterType monsterType)
+    protected void SetMonsterInfo(MonsterType monsterType)
     {
-        return GameDataManager.Instance.monster_Data[(int)monsterType];
+        monsterData = GameDataManager.Instance.monster_Data[(int)monsterType];
+        agent.speed = monsterData.speed;
+    }
+    public void SetTarget(GameObject _target)
+    {
+        target = _target;
     }
 
     private void Update()
@@ -166,16 +173,26 @@ public class MonsterBase : MonoBehaviour, IDamage
         Hit(damage);
     }
 
-    public virtual void Die()
-    {
-        monsterState = MonsterState.Die;
-        MoveStop();
-        AnimationChanger(MonsterAniState.Die);
-    }
-    public virtual void Stop()
+    private void Stop()
     {
         monsterState = MonsterState.Stop;
         MoveStop();
+    }
+    private void Die()
+    {
+        StartCoroutine(DieCoroutine());
+    }
+    private IEnumerator DieCoroutine()
+    {
+        agent.enabled = false;
+        monsterState = MonsterState.Die;
+        MoveStop();
+        AnimationChanger(MonsterAniState.Die);
+
+        yield return new WaitForSeconds(2f);
+
+        this.gameObject.SetActive(false);
+        monsterPool.MonstartEnqueue(this);
     }
     #endregion
 }
