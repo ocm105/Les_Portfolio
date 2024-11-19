@@ -10,7 +10,9 @@ public class CharacterView : UIView
     [SerializeField] Button characterSelectFemale;
     [SerializeField] Button selectButton;
     [SerializeField] GameObject[] characterSelectFrames;
-    [SerializeField] Animator[] animators;
+    [SerializeField] Transform malePos;
+    [SerializeField] Transform femalePos;
+    private Animator[] animators;
 
     private Animator selectAnimator;
 
@@ -34,6 +36,12 @@ public class CharacterView : UIView
 
     private void Init()
     {
+        animators = new Animator[2];
+        GameObject male = Instantiate(AddressableManager.Instance.GetFBX("MaleCharacter"), malePos);
+        animators[0] = male.GetComponent<Animator>();
+        GameObject female = Instantiate(AddressableManager.Instance.GetFBX("FemaleCharacter"), femalePos);
+        animators[1] = female.GetComponent<Animator>();
+
         for (int i = 0; i < animators.Length; i++)
         {
             animators[i].SetFloat("Select", (int)CharacterSceneState.Unclick);

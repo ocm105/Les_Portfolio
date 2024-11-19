@@ -15,8 +15,7 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] PlayerBattleControl playerBattleControl;
     public PlayerBattleControl _playerBattleControl { get { return playerBattleControl; } }
 
-    [SerializeField] GameObject[] playerPrefabs;
-    [SerializeField] GameObject[] profilePlayers;
+    [SerializeField] Transform profilePlayerPos;
     private GameObject player;
     public GameObject _player { get { return player; } }
 
@@ -30,7 +29,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void SetPlayer(PlayerType type)
     {
-        profilePlayers[(int)type].SetActive(true);
-        player = Instantiate(playerPrefabs[(int)type], Vector3.zero, Quaternion.identity, this.transform);
+        Instantiate(AddressableManager.Instance.GetFBX(type.ToString()), profilePlayerPos);
+        player = Instantiate(AddressableManager.Instance.GetFBX(type.ToString()), Vector3.zero, Quaternion.identity, this.transform);
     }
 }

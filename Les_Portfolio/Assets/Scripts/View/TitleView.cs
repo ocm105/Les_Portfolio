@@ -39,12 +39,16 @@ public class TitleView : UIView
         // Localization Data Load
         LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
         yield return StartCoroutine(LocalizationManager.Instance.LoadData());
-        Debug.Log($"<color=red>LocalizationManager Completed</color>");
+        WindowDebug.SuccessLog("LocalizationManager Completed");
 
         startText.text = LocalizationManager.Instance.GetLocalizeText("Title_load");
         // Game Data Load
         yield return StartCoroutine(GameDataManager.Instance.LoadData());
-        Debug.Log($"<color=red>GameDataManager Completed</color>");
+        WindowDebug.SuccessLog("GameDataManager Completed");
+
+        AddressableManager.Instance.StartDownload_Addressable("All");
+        yield return new WaitUntil(() => AddressableManager.Instance.isComplete);
+        yield return StartCoroutine(AddressableManager.Instance.LoadData());
 
         yield return new WaitForSeconds(2f);
         startButton.gameObject.SetActive(true);
