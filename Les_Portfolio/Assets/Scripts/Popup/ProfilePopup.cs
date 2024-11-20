@@ -1,33 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UISystem;
 using UnityEngine.UI;
+using UISystem;
 using DG.Tweening;
 using System;
 
-public class BasePopup_TwoBtn : BasePopup_Toast
+public class ProfilePopup : UIPopup
 {
-    [SerializeField] Button okButton;
-    [SerializeField] Button noButton;
+    [SerializeField] GameObject frame;
+    [SerializeField] Button githubButton;
+    [SerializeField] Button closeButton;
 
+    public PopupState Open()
+    {
+        ShowLayer();
+
+        return state;
+    }
     protected override void OnFirstShow()
     {
-        okButton.onClick.AddListener(OnClick_OkBtn);
-        noButton.onClick.AddListener(OnClick_NoBtn);
+        githubButton.onClick.AddListener(OnClick_GithubBtn);
+        closeButton.onClick.AddListener(OnClick_CloseBtn);
     }
     protected override void OnShow()
     {
         ShowTween();
     }
 
-    private void OnClick_OkBtn()
+    private void OnClick_GithubBtn()
     {
-        CloseTween(() => OnResult(PopupResults.OK));
+        Application.OpenURL("https://www.naver.com/");
     }
-    private void OnClick_NoBtn()
+    private void OnClick_CloseBtn()
     {
-        CloseTween(() => OnResult(PopupResults.No));
+        CloseTween(() => OnResult(PopupResults.Close));
     }
 
     private void ShowTween()
@@ -39,4 +46,5 @@ public class BasePopup_TwoBtn : BasePopup_Toast
     {
         frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic).OnComplete(call.Invoke);
     }
+
 }

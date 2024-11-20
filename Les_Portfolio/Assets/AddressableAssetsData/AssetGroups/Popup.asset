@@ -31,6 +31,13 @@ MonoBehaviour:
     - Popup
     - All
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52f8e6e5d8ab83e47a40b1f2b3d07598
+    m_Address: ProfilePopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Popup
+    - All
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: acda74a656c5c2b4096e7e73899334fd, type: 2}
   m_SchemaSet:

@@ -174,9 +174,18 @@ namespace UISystem
             if (child != null)
                 return child.GetComponent<T>();
 
-            // string path = string.Concat(PrefabRoot,type.ToString(), "/", name);
-            // Debug.Log("path = " + path);
-            GameObject go = Instantiate(AddressableManager.Instance.GetPopup(name)); //Instantiate(Resources.Load<GameObject>(path));
+            GameObject go;
+            try
+            {
+                go = Instantiate(AddressableManager.Instance.GetPopup(name));
+            }
+            catch (Exception)
+            {
+                string path = string.Concat(PrefabRoot, type.ToString(), "/", name);
+                // Debug.Log("path = " + path);
+                go = Instantiate(Resources.Load<GameObject>(path));
+            }
+
             go.SetActive(false);
             go.name = name;
             T comp = go.GetComponent<T>();

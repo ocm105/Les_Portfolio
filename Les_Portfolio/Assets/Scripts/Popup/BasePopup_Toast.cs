@@ -34,9 +34,11 @@ public class BasePopup_Toast : UIPopup
         frame.transform.localScale = Vector3.zero;
 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic));
+        sequence.Append(frame.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutCubic));
         sequence.AppendInterval(2f);
         sequence.Append(frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.InCubic));
         sequence.SetAutoKill(true);
+
+        sequence.OnComplete(() => OnResult(PopupResults.Close));
     }
 }

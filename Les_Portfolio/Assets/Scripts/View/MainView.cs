@@ -7,8 +7,11 @@ using UISystem;
 public class MainView : UIView
 {
     [SerializeField] Joystick joystick;
+    [SerializeField] Button profileButton;
     [SerializeField] Button settingButton;
-    [SerializeField] Button attackButton;
+    [SerializeField] Button messageButton;
+    [SerializeField] Button misstionButton;
+    [SerializeField] Button shopButton;
     [SerializeField] Button gameStartButton;
 
     private PlayerInfo playerInfo;
@@ -22,8 +25,12 @@ public class MainView : UIView
     {
         playerInfo = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInfo>();
         cinemachineControl = GameObject.FindGameObjectWithTag("Cinemachine").GetComponent<CinemachineControl>();
+
+        profileButton.onClick.AddListener(OnClick_ProfileBtn);
         settingButton.onClick.AddListener(OnClick_SettingBtn);
-        attackButton.onClick.AddListener(OnClick_AttackBtn);
+        messageButton.onClick.AddListener(OnClick_MessageBtn);
+        misstionButton.onClick.AddListener(OnClick_MisstionBtn);
+        shopButton.onClick.AddListener(OnClick_ShopBtn);
         gameStartButton.onClick.AddListener(OnClick_GameStartBtn);
     }
     protected override void OnShow()
@@ -33,6 +40,10 @@ public class MainView : UIView
     }
 
     #region Event
+    private void OnClick_ProfileBtn()
+    {
+        Les_UIManager.Instance.Popup<ProfilePopup>().Open();
+    }
     private void OnClick_SettingBtn()
     {
         PopupState popupState = Les_UIManager.Instance.Popup<SettingPopup>().Open();
@@ -62,14 +73,22 @@ public class MainView : UIView
         };
     }
 
+    private void OnClick_MessageBtn()
+    {
+        Les_UIManager.Instance.Popup<BasePopup_Toast>().Open("Common_Develop");
+    }
+    private void OnClick_MisstionBtn()
+    {
+        Les_UIManager.Instance.Popup<BasePopup_Toast>().Open("Common_Develop");
+    }
+    private void OnClick_ShopBtn()
+    {
+        Les_UIManager.Instance.Popup<BasePopup_Toast>().Open("Common_Develop");
+    }
+
     private void OnClick_GameStartBtn()
     {
         LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
-    }
-
-    private void OnClick_AttackBtn()
-    {
-        playerInfo._playerBattleControl.Attack();
     }
     #endregion
 }

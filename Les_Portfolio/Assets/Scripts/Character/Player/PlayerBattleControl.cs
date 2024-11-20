@@ -36,6 +36,7 @@ public class PlayerBattleControl : MonoBehaviour, IDamage
         else
         {
             damage = value - def;
+            // Debug.Log($"Player에게 {damage}의 데미지");
             hp -= damage;
         }
 
@@ -52,7 +53,6 @@ public class PlayerBattleControl : MonoBehaviour, IDamage
     }
     public void OnDamage(float damage)
     {
-        Debug.Log($"Player에게 {damage}의 데미지");
         Hit(damage);
     }
     private void Die()

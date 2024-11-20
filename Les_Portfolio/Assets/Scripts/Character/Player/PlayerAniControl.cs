@@ -25,18 +25,20 @@ public class PlayerAniControl : MonoBehaviour
         switch (state)
         {
             case PlayerAniState.Default:
-                animator.Play("Move_Blend");
+                animator.CrossFade("Move_Blend", 0.1f, 0);
                 break;
             case PlayerAniState.Attack:
                 StartCoroutine(AttackCoroutine());
                 break;
-            case PlayerAniState.Hit:
-                break;
             case PlayerAniState.Skill:
-                StartCoroutine(SkillCoroutine());
+                StartCoroutine(AnimationCoroutine("Skill01"));
                 break;
-            default:
-                animator.Play(state.ToString(), 0, 0);
+            case PlayerAniState.Hit:
+                StartCoroutine(AnimationCoroutine(state.ToString()));
+                break;
+            case PlayerAniState.Victory:
+            case PlayerAniState.Die:
+                animator.CrossFade(state.ToString(), 0.1f, 0);
                 break;
         }
 
@@ -59,24 +61,23 @@ public class PlayerAniControl : MonoBehaviour
             if (attackLevel == PlayerAttackLevel.Max)
                 attackLevel = PlayerAttackLevel.Attack01;
 
-            animator.Play(key);
+            animator.CrossFade(key.ToString(), 0.1f, 0);
 
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName(key));
-            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f);
 
             AnimationChanger(PlayerAniState.Default);
         }
         yield break;
     }
-    private IEnumerator SkillCoroutine()
+    private IEnumerator AnimationCoroutine(string key)
     {
         if (playerAniState == PlayerAniState.Default)
         {
-            string key = "Skill01";
-            animator.Play(key);
+            animator.CrossFade(key.ToString(), 0.1f, 0);
 
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName(key));
-            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f);
 
             AnimationChanger(PlayerAniState.Default);
         }

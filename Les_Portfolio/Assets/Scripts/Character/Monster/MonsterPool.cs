@@ -24,7 +24,7 @@ public class MonsterPool : MonoBehaviour
     }
     private IEnumerator StartMonsterWaveCoroutine()
     {
-        // while (true)
+        while (true)
         {
             if (monsterPool.Count <= 0)
             {

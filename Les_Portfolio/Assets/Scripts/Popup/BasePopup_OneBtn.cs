@@ -27,11 +27,10 @@ public class BasePopup_OneBtn : BasePopup_Toast
     private void ShowTween()
     {
         frame.transform.localScale = Vector3.zero;
-        frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic);
+        frame.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutCubic);
     }
     private void CloseTween(Action call)
     {
-        frame.transform.localScale = Vector3.zero;
         frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic).OnComplete(call.Invoke);
     }
 }

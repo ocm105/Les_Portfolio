@@ -51,7 +51,7 @@ public class GameView : UIView
     #region Event
     public void SetHP(float value)
     {
-        hpBar.value = nowHp = value;
+        hpBar.value = nowHp = Mathf.Round(value * 10) * 0.1f;
         hpText.text = $"{nowHp}/{maxHp}";
     }
     public void SetMP(float value)

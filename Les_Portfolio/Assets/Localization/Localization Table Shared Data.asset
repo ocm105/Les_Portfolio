@@ -15,6 +15,34 @@ MonoBehaviour:
   m_TableCollectionName: Localization Table
   m_TableCollectionNameGuidString: 327b71a7cc822ab4a8839edba0008686
   m_Entries:
+  - m_Id: 13136329199099904
+    m_Key: Common_Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180288
+    m_Key: Common_Develop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180289
+    m_Key: Common_ErrorNetwork
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180290
+    m_Key: Common_Ok
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374592
+    m_Key: Common_Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374593
+    m_Key: Common_No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374594
+    m_Key: Common_Exit
+    m_Metadata:
+      m_Items: []
   - m_Id: 3511652753408
     m_Key: Title_title
     m_Metadata:
@@ -41,6 +69,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2865996294561794
     m_Key: Character_selectButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329295568896
+    m_Key: ProfilePopup_PR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329295568897
+    m_Key: ProfilePopup_GitHub
     m_Metadata:
       m_Items: []
   - m_Id: 10911173420556288

@@ -17,21 +17,19 @@ public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>
         // 인터넷 연결이 안되었을 때 행동
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            //Debug.Log("인터넷 연결이 안되었을 때 행동");
-            // PopupState popup = WV_UIMamager.Instance.Popup<CommonPopup>().Open(CommonPopupType.C, "common_error_network", ePopupType.i_wifi);
-            // popup.OnClose = p => Application.Quit();
+            PopupState popup = Les_UIManager.Instance.Popup<BasePopup_OneBtn>().Open("Common_Develop");
+            popup.OnClose = p => Application.Quit();
+            popup.OnOK = p => Application.Quit();
             return false;
         }
         // 데이터로 연결이 되었을 때 행동
         else if (Application.internetReachability == NetworkReachability.ReachableViaCarrierDataNetwork)
         {
-            //Debug.Log("데이터로 연결이 되었을 때 행동");
             return true;
         }
         // 와이파이로 연결이 되었을 때 행동
         else
         {
-            //Debug.Log("와이파이 연결이 되었을 때 행동");
             return true;
         }
     }

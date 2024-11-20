@@ -38,6 +38,6 @@ public class PlayerInfo : MonoBehaviour
         playerAniControl.AnimationChanger(PlayerAniState.Default);
         playerAniControl.SetMoveValue(0f);
 
-        playerBattleControl.SetPlayerData(playerData);
+        playerBattleControl?.SetPlayerData(playerData);
     }
 }

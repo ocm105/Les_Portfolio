@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UISystem;
 using UnityEngine.UI;
+using DG.Tweening;
+using System;
 
 public class SettingPopup : UIPopup
 {
+    [SerializeField] GameObject frame;
+
     #region Sound
     [Header("Sound")]
     [SerializeField] Sprite soundOnSprite;
@@ -68,6 +72,7 @@ public class SettingPopup : UIPopup
     protected override void OnShow()
     {
         Init();
+        ShowTween();
     }
     private void Init()
     {
@@ -142,7 +147,7 @@ public class SettingPopup : UIPopup
 
         localSettingInfo.languageType = languageType;
 
-        OnResult(PopupResults.Close);
+        CloseTween(() => OnResult(PopupResults.Close));
     }
 
     protected override void OnResult(PopupResults result)
@@ -153,6 +158,18 @@ public class SettingPopup : UIPopup
         }
 
         base.OnResult(result);
+    }
+    #endregion
+
+    #region Tween
+    private void ShowTween()
+    {
+        frame.transform.localScale = Vector3.zero;
+        frame.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutCubic);
+    }
+    private void CloseTween(Action call)
+    {
+        frame.transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutCubic).OnComplete(call.Invoke);
     }
     #endregion
 }

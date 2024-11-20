@@ -2896,6 +2896,7 @@ MonoBehaviour:
   TargetFrameRate: -1
   TopMost: 0
   CancelOnBack: 1
+  frame: {fileID: 5733163987849825651}
   soundOnSprite: {fileID: 21300000, guid: 7391c95db40ff45cab5edb78c1eea28b, type: 3}
   soundOffSprite: {fileID: 21300000, guid: 3bf6fa12a88944c73b546c03aec3934e, type: 3}
   bgmButton: {fileID: 5509559449491992345}

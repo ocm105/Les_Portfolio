@@ -124,7 +124,7 @@ public class MonsterBase : MonoBehaviour, IDamage
         else
         {
             damage = (value - monsterData.def) / monsterData.hp;
-            Debug.Log($"Monster에게 {damage}의 데미지");
+            // Debug.Log($"Monster에게 {damage}의 데미지");
             hpBar.transform.localScale = new Vector3(Mathf.Clamp(hpBar.transform.localScale.x - damage, 0, 1), 1, 1);
         }
 

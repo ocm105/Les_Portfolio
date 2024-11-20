@@ -112,6 +112,40 @@ MonoBehaviour:
       \nIt is encoded and saved in Base64."
     m_Metadata:
       m_Items: []
+  - m_Id: 13136329199099904
+    m_Localized: Lee Eui-soo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180288
+    m_Localized: We are preparing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180289
+    m_Localized: 'This is a network environment error.
+
+      Close the application.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329287180290
+    m_Localized: check
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374592
+    m_Localized: yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374593
+    m_Localized: no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329291374594
+    m_Localized: Exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329295568897
+    m_Localized: Go to GitHub
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
