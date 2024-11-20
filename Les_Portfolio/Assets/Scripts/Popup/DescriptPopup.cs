@@ -4,7 +4,6 @@ using UnityEngine;
 using UISystem;
 using TMPro;
 using UnityEngine.UI;
-using System;
 
 public class DescriptPopup : UIPopup
 {

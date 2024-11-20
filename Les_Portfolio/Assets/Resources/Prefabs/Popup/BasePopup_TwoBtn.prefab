@@ -721,6 +721,7 @@ GameObject:
   - component: {fileID: 2907559966252259513}
   - component: {fileID: 5848602050456650245}
   - component: {fileID: 4156100572793283689}
+  - component: {fileID: 2709965241747606333}
   m_Layer: 5
   m_Name: BasePopup_TwoBtn
   m_TagString: Untagged
@@ -798,6 +799,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2709965241747606333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4910483523131082045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a814af247f1dd3c4e9cf492af816ff08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnHide: 0
+  TargetFrameRate: -1
+  TopMost: 0
+  CancelOnBack: 1
+  frame: {fileID: 1246100876206231973}
+  messageText: {fileID: 4628866168700812510}
+  okButton: {fileID: 6851042529248659251}
+  noButton: {fileID: 8262486116341649767}
 --- !u!1 &9018863560139288144
 GameObject:
   m_ObjectHideFlags: 0
