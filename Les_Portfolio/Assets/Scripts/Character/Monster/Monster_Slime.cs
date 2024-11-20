@@ -7,7 +7,7 @@ public class Monster_Slime : MonsterBase
 
     protected override void Start()
     {
-        SetMonsterInfo(MonsterType.Slime);
+        SetMonsterData(MonsterType.Slime);
     }
 
     protected override void AnimationChanger(MonsterAniState state)

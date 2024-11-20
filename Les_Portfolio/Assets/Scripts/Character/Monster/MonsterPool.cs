@@ -49,14 +49,14 @@ public class MonsterPool : MonoBehaviour
     private void MonsterDequeue()
     {
         MonsterBase monsterBase = monsterPool.Dequeue();
-        monsterBase.gameObject.SetActive(true);
         monsterBase.Init();
     }
     private MonsterBase MonsterInstantiate()
     {
         GameObject go = Instantiate(AddressableManager.Instance.GetFBX(MonsterType.Slime.ToString()), GetRandomCreatePosition());
         MonsterBase monsterBase = go.GetComponent<MonsterBase>();
-        monsterBase.SetTarget(player);
+        monsterBase.SetPlayer(player);
+        monsterBase.dieCall += MonstartEnqueue;
         go.SetActive(false);
 
         return monsterBase;

@@ -36,11 +36,11 @@ public class CharacterView : UIView
 
     private void Init()
     {
-        animators = new Animator[(int)PlayerType.Max];
+        animators = new Animator[(int)PlayerType.Max - 1];
         GameObject male = Instantiate(AddressableManager.Instance.GetFBX("MaleCharacter"), malePos);
-        animators[(int)PlayerType.Male + 1] = male.GetComponent<Animator>();
+        animators[(int)PlayerType.Male - 1] = male.GetComponent<Animator>();
         GameObject female = Instantiate(AddressableManager.Instance.GetFBX("FemaleCharacter"), femalePos);
-        animators[(int)PlayerType.Female + 1] = female.GetComponent<Animator>();
+        animators[(int)PlayerType.Female - 1] = female.GetComponent<Animator>();
 
         for (int i = 0; i < animators.Length; i++)
         {
@@ -56,7 +56,7 @@ public class CharacterView : UIView
         float animValue = 0;
         for (int i = 0; i < characterSelectFrames.Length; i++)
         {
-            isActive = (int)type == i ? true : false;
+            isActive = (int)type - 1 == i ? true : false;
             characterSelectFrames[i].SetActive(isActive);
 
             animValue = isActive == true ? (int)CharacterSceneState.Click : (int)CharacterSceneState.Unclick;

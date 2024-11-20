@@ -1274,6 +1274,7 @@ GameObject:
   - component: {fileID: 3594783033588514806}
   - component: {fileID: 1453111405768231120}
   - component: {fileID: 6928785127339755211}
+  - component: {fileID: 146558970839576119}
   m_Layer: 6
   m_Name: OHS03Polyart
   m_TagString: Weapon
@@ -1394,6 +1395,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &146558970839576119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6398441759206751997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c738a2e3e73404594482a14cb5021e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6457498203218769252
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,9 +46,9 @@ public enum CharacterSceneState
 #region Player
 public enum PlayerType
 {
-    none = -1,
-    Male = 0,
-    Female,
+    none = 0,
+    Male = 1,
+    Female = 2,
     Max
 }
 
@@ -56,8 +56,10 @@ public enum PlayerAniState
 {
     Default,
     Attack,
+    Hit,
     Skill,
-    Victory
+    Victory,
+    Die
 }
 
 public enum PlayerAttackLevel
@@ -71,7 +73,7 @@ public enum PlayerAttackLevel
 #region Monster
 public enum MonsterType
 {
-    none = -1,
+    none = 0,
     Slime = 1,
     Turtle = 2,
     Max

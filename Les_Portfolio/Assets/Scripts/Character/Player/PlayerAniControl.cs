@@ -9,10 +9,15 @@ public class PlayerAniControl : MonoBehaviour
 
     private PlayerAttackLevel attackLevel = 0;
     public PlayerAniState playerAniState { get; private set; }
-    private void Start()
+
+    private void Awake()
     {
         playerInfo = this.GetComponent<PlayerInfo>();
-        animator = playerInfo._player.GetComponent<Animator>();
+    }
+
+    public void SetAnimator(Animator _animator)
+    {
+        animator = _animator;
     }
 
     public void AnimationChanger(PlayerAniState state)
@@ -24,6 +29,8 @@ public class PlayerAniControl : MonoBehaviour
                 break;
             case PlayerAniState.Attack:
                 StartCoroutine(AttackCoroutine());
+                break;
+            case PlayerAniState.Hit:
                 break;
             case PlayerAniState.Skill:
                 StartCoroutine(SkillCoroutine());

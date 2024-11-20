@@ -15,10 +15,10 @@ public class PlayerInfo : MonoBehaviour
     [SerializeField] PlayerBattleControl playerBattleControl;
     public PlayerBattleControl _playerBattleControl { get { return playerBattleControl; } }
 
-    [SerializeField] Transform profilePlayerPos;
+
     private GameObject player;
     public GameObject _player { get { return player; } }
-
+    public PlayerData playerData { get; private set; }
     public CinemachineControl cinemachineControl { get; private set; }
 
     private void Awake()
@@ -29,7 +29,15 @@ public class PlayerInfo : MonoBehaviour
 
     private void SetPlayer(PlayerType type)
     {
-        Instantiate(AddressableManager.Instance.GetFBX(type.ToString()), profilePlayerPos);
         player = Instantiate(AddressableManager.Instance.GetFBX(type.ToString()), Vector3.zero, Quaternion.identity, this.transform);
+        playerData = GameDataManager.Instance.player_Data[(int)type];
+
+        playerMoveControl.SetPlayerSpeed(GameDataManager.Instance.player_Data[(int)type].speed);
+
+        playerAniControl.SetAnimator(player.GetComponent<Animator>());
+        playerAniControl.AnimationChanger(PlayerAniState.Default);
+        playerAniControl.SetMoveValue(0f);
+
+        playerBattleControl.SetPlayerData(playerData);
     }
 }

@@ -7,6 +7,7 @@ public class GameDataManager : SingletonMonoBehaviour<GameDataManager>
 {
     public Dictionary<int, DescriptData> discription_Data = new Dictionary<int, DescriptData>();
     public Dictionary<int, MonsterData> monster_Data = new Dictionary<int, MonsterData>();
+    public Dictionary<int, PlayerData> player_Data = new Dictionary<int, PlayerData>();
 
     private bool isNetworkData_Completed = false;
 
@@ -22,6 +23,7 @@ public class GameDataManager : SingletonMonoBehaviour<GameDataManager>
         {
             yield return StartCoroutine(NetworkManager.Instance.GetDescriptRequest((resData) => discription_Data = resData));
             yield return StartCoroutine(NetworkManager.Instance.GetMonsterDataRequest((resData) => monster_Data = resData));
+            yield return StartCoroutine(NetworkManager.Instance.GetPlayerDataRequest((resData) => player_Data = resData));
         }
 
         isNetworkData_Completed = true;

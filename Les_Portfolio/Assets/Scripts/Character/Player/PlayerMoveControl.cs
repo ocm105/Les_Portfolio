@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerMoveControl : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
     [SerializeField] GameObject fpsViewTarget;
 
     private float winX, winZ;
     private float mobX, mobZ;
     private Vector3 movePostion;
     private Vector3 lookPosition;
+    private float playerSpeed = 0f;
     private float moveSpeed = 0f;
     private Camera mainCam;
 
@@ -25,15 +25,13 @@ public class PlayerMoveControl : MonoBehaviour
         characterController = this.GetComponent<CharacterController>();
     }
 
-    private void Init()
-    {
-        playerInfo._playerAniControl.AnimationChanger(PlayerAniState.Default);
-        playerInfo._playerAniControl.SetMoveValue(0f);
-    }
-
     public void SetJoystick(Joystick joystick)
     {
         this.joystick = joystick;
+    }
+    public void SetPlayerSpeed(float speed)
+    {
+        playerSpeed = speed;
     }
 
     private void FixedUpdate()
@@ -63,7 +61,7 @@ public class PlayerMoveControl : MonoBehaviour
                         moveSpeed = Mathf.Clamp01(Mathf.Abs(movePostion.x) + Mathf.Abs(movePostion.z));
 
                         this.transform.rotation = Quaternion.Euler(0, fpsViewTarget.transform.eulerAngles.y, 0);
-                        characterController.Move(movePostion * speed * Time.fixedDeltaTime);
+                        characterController.Move(movePostion * playerSpeed * Time.fixedDeltaTime);
                         break;
 
                     case PlayerViewType.QuarterView:
@@ -81,7 +79,7 @@ public class PlayerMoveControl : MonoBehaviour
                             lookPosition = Quaternion.LookRotation(movePostion).eulerAngles;
                             this.transform.rotation = Quaternion.Euler(Vector3.up * (lookPosition.y + mainCam.transform.eulerAngles.y)).normalized;
                         }
-                        characterController.Move(this.transform.forward * speed * moveSpeed * Time.fixedDeltaTime);
+                        characterController.Move(this.transform.forward * playerSpeed * moveSpeed * Time.fixedDeltaTime);
                         break;
                 }
 
