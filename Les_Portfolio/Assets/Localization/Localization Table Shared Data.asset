@@ -71,6 +71,10 @@ MonoBehaviour:
     m_Key: Character_selectButton
     m_Metadata:
       m_Items: []
+  - m_Id: 13187882647855104
+    m_Key: Character_noSelect
+    m_Metadata:
+      m_Items: []
   - m_Id: 13136329295568896
     m_Key: ProfilePopup_PR
     m_Metadata:

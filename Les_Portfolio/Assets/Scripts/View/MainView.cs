@@ -88,7 +88,7 @@ public class MainView : UIView
 
     private void OnClick_GameStartBtn()
     {
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
+        Les_UIManager.Instance.Popup<DungeonPopup>().Open();
     }
     #endregion
 }

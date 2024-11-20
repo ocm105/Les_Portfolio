@@ -95,4 +95,19 @@ public enum MonsterState
 }
 #endregion
 
+#region Dungeon
+public enum DungeonScore
+{
+    none = 0,
+    bad,
+    good,
+    perfect
+}
+public enum DungeonType
+{
+    SlimeDungeon = 1,
+    TurtleDungeon,
+    Max
+}
 
+#endregion

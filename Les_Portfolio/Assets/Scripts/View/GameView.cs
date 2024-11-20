@@ -60,32 +60,29 @@ public class GameView : UIView
         mpText.text = $"{nowMp}/{maxMp}";
     }
 
+    public void DungeonClear()
+    {
+        LocalDungeonInfo Info = LocalSave.GetLocalDungeonInfo(GameDataManager.Instance.currentDugeonData.name);
+        Info.clear = true;
+        Info.dungeonScore = DungeonScore.good;
+        LocalSave.SetLocalDungeonInfo(Info);
+
+        int nextIndex = GameDataManager.Instance.currentDugeonData.index + 1;
+        LocalDungeonInfo nextInfo = new LocalDungeonInfo(GameDataManager.Instance.dungeon_Data[nextIndex].name);
+        nextInfo.open = true;
+        LocalSave.SetLocalDungeonInfo(nextInfo);
+
+        //메인씬 이동
+    }
+    public void DungeonFail()
+    {
+        // 실패 팝업
+        // 메인씬 이동
+    }
+
     private void OnClick_SettingBtn()
     {
         // PopupState popupState = Les_UIManager.Instance.Popup<SettingPopup>().Open();
-        // popupState.OnClose = p =>
-        // {
-        //     LocalSettingInfo settingInfo = (LocalSettingInfo)popupState.ResultParam;
-        //     LocalSettingInfo localSettingInfo = LocalSave.GetSettingInfo();
-
-        //     localSettingInfo.bgmVolume = settingInfo.bgmVolume;
-        //     localSettingInfo.sfxVolume = settingInfo.sfxVolume;
-        //     localSettingInfo.isBgm = settingInfo.isBgm;
-        //     localSettingInfo.isSfx = settingInfo.isSfx;
-
-
-        //     if (localSettingInfo.playerViewType != settingInfo.playerViewType)
-        //     {
-        //         localSettingInfo.playerViewType = settingInfo.playerViewType;
-        //     }
-
-        //     if (localSettingInfo.languageType != settingInfo.languageType)
-        //     {
-        //         LocalizationManager.Instance.ChangeLanguage((int)settingInfo.languageType);
-        //         localSettingInfo.languageType = settingInfo.languageType;
-        //     }
-        //     LocalSave.SetSettingInfo(localSettingInfo);
-        // };
     }
 
     private void OnClick_AttackBtn()

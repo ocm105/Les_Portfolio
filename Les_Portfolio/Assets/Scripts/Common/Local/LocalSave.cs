@@ -7,6 +7,7 @@ public static class LocalSave
 {
     private const string PREFS_DATA_SETTING = "PREFS_DATA_SETTING";
     private const string PREFS_DATA_PLAYER = "PREFS_DATA_PLAYER";
+    private const string PREFS_DATA_DENGEUN = "PREFS_DATA_DENGEUN";
 
     #region Base
     private static T GetLocalData<T>(string key)
@@ -123,6 +124,33 @@ public static class LocalSave
     public static void SetLocalPlayerInfo(LocalPlayerInfo info)
     {
         string key = PREFS_DATA_PLAYER;
+
+        SetLocalData(key, info);
+    }
+    #endregion
+
+    #region Dungeon
+    public static LocalDungeonInfo GetLocalDungeonInfo(string _name)
+    {
+        LocalDungeonInfo info;
+
+        string key = PREFS_DATA_DENGEUN + _name;
+
+        if (!HasKey(key))
+        {
+            info = new LocalDungeonInfo(_name);
+            SetLocalDungeonInfo(info);
+        }
+        else
+        {
+            info = GetLocalData<LocalDungeonInfo>(key);
+        }
+
+        return info;
+    }
+    public static void SetLocalDungeonInfo(LocalDungeonInfo info)
+    {
+        string key = PREFS_DATA_DENGEUN + info.name;
 
         SetLocalData(key, info);
     }

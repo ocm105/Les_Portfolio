@@ -35,3 +35,19 @@ public class LocalPlayerInfo
     }
 }
 
+[Serializable]
+public class LocalDungeonInfo
+{
+    public string name;
+    public bool open;
+    public bool clear;
+    public DungeonScore dungeonScore;
+    public LocalDungeonInfo(string _name)
+    {
+        name = _name;
+        open = false;
+        clear = false;
+        dungeonScore = DungeonScore.none;
+    }
+}
+

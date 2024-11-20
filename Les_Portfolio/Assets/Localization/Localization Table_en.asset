@@ -146,6 +146,10 @@ MonoBehaviour:
     m_Localized: Go to GitHub
     m_Metadata:
       m_Items: []
+  - m_Id: 13187882647855104
+    m_Localized: You have not selected a character.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

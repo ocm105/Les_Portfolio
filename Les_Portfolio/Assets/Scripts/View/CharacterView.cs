@@ -70,10 +70,17 @@ public class CharacterView : UIView
     }
     private void OnClick_Select()
     {
-        selectAnimator.Rebind();
-        selectAnimator.SetFloat("Select", (int)CharacterSceneState.Select);
-        LocalSave.SetLocalPlayerInfo(localPlayerInfo);
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+        if (localPlayerInfo.playerType != PlayerType.none)
+        {
+            selectAnimator.Rebind();
+            selectAnimator.SetFloat("Select", (int)CharacterSceneState.Select);
+            LocalSave.SetLocalPlayerInfo(localPlayerInfo);
+            LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+        }
+        else
+        {
+            Les_UIManager.Instance.Popup<BasePopup_Toast>().Open("Character_noSelect");
+        }
     }
     #endregion
 }
