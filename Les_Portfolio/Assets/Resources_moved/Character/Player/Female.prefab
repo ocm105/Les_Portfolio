@@ -1478,6 +1478,7 @@ GameObject:
   - component: {fileID: 6591065087848295495}
   - component: {fileID: 5765267224033223912}
   - component: {fileID: 189964034949668771}
+  - component: {fileID: 3558226749500402230}
   m_Layer: 6
   m_Name: OHS06Polyart
   m_TagString: Untagged
@@ -1569,8 +1570,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.39890143, y: 1.488128, z: 0.088711575}
-  m_Center: {x: 0.00000019455231, y: 0.5219321, z: -0.0000000036456487}
+  m_Size: {x: 0.39890143, y: 1, z: 0.088711575}
+  m_Center: {x: 0.00000019455231, y: 0.7, z: -0.0000000036456487}
 --- !u!54 &189964034949668771
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1595,9 +1596,21 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
+--- !u!114 &3558226749500402230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6073690412773970691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1c738a2e3e73404594482a14cb5021e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6264264260801787317
 GameObject:
   m_ObjectHideFlags: 0

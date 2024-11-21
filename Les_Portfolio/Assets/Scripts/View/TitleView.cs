@@ -52,7 +52,7 @@ public class TitleView : UIView
         {
             // Debug.Log("DownPercentValue : " + AddressableManager.Instance.DownPercentValue);
             percent = AddressableManager.Instance.downPercent * 100;
-            startText.text = $"{str}{percent}%";
+            startText.text = $"{str}{Mathf.RoundToInt(percent)}%";
             yield return null;
         }
         yield return StartCoroutine(AddressableManager.Instance.LoadData());
