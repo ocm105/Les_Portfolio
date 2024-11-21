@@ -5,45 +5,56 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 
-public class DungeonInfoPopup : UIPopup
+public class DungeonResultPopup : UIPopup
 {
     [SerializeField] GameObject frame;
-    [SerializeField] TextMeshProUGUI dungeonName;
+    [SerializeField] TextMeshProUGUI titleText;
+    [SerializeField] GameObject[] stars;
+    [SerializeField] TextMeshProUGUI dungeonKills;
     [SerializeField] TextMeshProUGUI dungeonTime;
-    [SerializeField] Button okButton;
     [SerializeField] Button exitButton;
-    private DungeonData dungeonData;
 
+    private string title;
+    private int kill;
+    private int time;
+    private DungeonScore score;
 
-    public PopupState Open(DungeonData data)
+    public PopupState Open(string _title, int _kill, int _time, DungeonScore _score)
     {
-        dungeonData = data;
+        title = _title;
+        kill = _kill;
+        time = _time;
+        score = _score;
         ShowLayer();
         return state;
     }
 
     protected override void OnFirstShow()
     {
-        okButton.onClick.AddListener(OnClick_Ok);
         exitButton.onClick.AddListener(OnClick_Exit);
     }
     protected override void OnShow()
     {
-        Init();
+        for (int i = 0; i < stars.Length; i++)
+        {
+            stars[i].SetActive(false);
+        }
+        SetInfo();
         ShowTween();
     }
-    private void Init()
+    private void SetInfo()
     {
-        dungeonName.text = dungeonData.name;
-        dungeonTime.text = TimeSpan.FromSeconds(dungeonData.time).ToString(@"mm\:ss");
+        titleText.text = title;
+        dungeonKills.text = kill.ToString();
+        dungeonTime.text = TimeSpan.FromSeconds(time).ToString(@"mm\:ss");
+
+        for (int i = 0; i < (int)score; i++)
+        {
+            stars[i].SetActive(true);
+        }
     }
 
     #region Event
-    public void OnClick_Ok()
-    {
-        GameDataManager.Instance.currentDugeonData = dungeonData;
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
-    }
     private void OnClick_Exit()
     {
         CloseTween(() => OnResult(PopupResults.Close));

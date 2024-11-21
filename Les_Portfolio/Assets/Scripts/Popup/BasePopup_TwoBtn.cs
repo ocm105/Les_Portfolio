@@ -10,11 +10,13 @@ public class BasePopup_TwoBtn : BasePopup_Toast
 {
     [SerializeField] Button okButton;
     [SerializeField] Button noButton;
+    [SerializeField] Button exitButton;
 
     protected override void OnFirstShow()
     {
         okButton.onClick.AddListener(OnClick_OkBtn);
         noButton.onClick.AddListener(OnClick_NoBtn);
+        exitButton.onClick.AddListener(OnClick_NoBtn);
     }
     protected override void OnShow()
     {
@@ -23,7 +25,7 @@ public class BasePopup_TwoBtn : BasePopup_Toast
 
     private void OnClick_OkBtn()
     {
-        CloseTween(() => OnResult(PopupResults.OK));
+        CloseTween(() => OnResult(PopupResults.Yes));
     }
     private void OnClick_NoBtn()
     {

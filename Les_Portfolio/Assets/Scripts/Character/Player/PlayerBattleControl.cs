@@ -55,22 +55,20 @@ public class PlayerBattleControl : MonoBehaviour, IDamage
     {
         Hit(damage);
     }
+
     private void Die()
     {
-        StartCoroutine(DieCoroutine());
-    }
-    private IEnumerator DieCoroutine()
-    {
+        gameView.SetDungeonState(DungeonState.Fail);
         playerInfo._playerAniControl.AnimationChanger(PlayerAniState.Die);
-
-        yield return new WaitForSeconds(2f);
-
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+    }
+    public void Victory()
+    {
+        playerInfo._playerAniControl.AnimationChanger(PlayerAniState.Victory);
     }
 
     public void Skill(int num)
     {
         playerInfo._playerAniControl.AnimationChanger(PlayerAniState.Skill);
-        gameView.SetHP(mp);
+        gameView.SetMP(mp);
     }
 }

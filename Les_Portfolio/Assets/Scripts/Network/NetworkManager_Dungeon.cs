@@ -11,6 +11,9 @@ public class DungeonData
     public string name;     // 이름
     public MonsterType monster;        // 몬스터 타입
     public float time;      // 시간
+    public int mission1;
+    public int mission2;
+    public int mission3;
 }
 
 public partial class NetworkManager : SingletonMonoBehaviour<NetworkManager>

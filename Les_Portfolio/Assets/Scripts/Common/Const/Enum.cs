@@ -90,7 +90,6 @@ public enum MonsterAniState
 public enum MonsterState
 {
     Alive,
-    Stop,
     Die
 }
 #endregion
@@ -110,4 +109,11 @@ public enum DungeonType
     Max
 }
 
+public enum DungeonState
+{
+    Start,
+    Stop,
+    Fail,
+    Victory
+}
 #endregion

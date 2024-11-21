@@ -358,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51383855}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18157858, y: 0.000000008460175, z: -0.0000000015621553, w: 0.98337644}
+  m_LocalRotation: {x: 0.18157858, y: -0.000000008460175, z: 0.0000000015621553, w: 0.98337644}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1930,7 +1930,7 @@ GameObject:
   - component: {fileID: 1303972486}
   - component: {fileID: 1303972487}
   m_Layer: 0
-  m_Name: MonsterPool
+  m_Name: DungeonController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1968,13 +1968,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 890549324}
-  monsterPoolSize: 10
-  delay: 2
+  monsterPoolSize: 30
   createPos:
   - {fileID: 1073511878}
   - {fileID: 982824241}
   - {fileID: 291010377}
   - {fileID: 1866359244}
+  delay: 2
 --- !u!1 &1364416327
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,7 +3119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143251732}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.18157856, y: 0.000000033840696, z: -0.00000000624862, w: 0.98337644}
+  m_LocalRotation: {x: 0.18157856, y: -0.000000033840696, z: 0.00000000624862, w: 0.98337644}
   m_LocalPosition: {x: 0, y: 2.025, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3176,6 +3176,22 @@ PrefabInstance:
     - target: {fileID: 1212726754331741720, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
       propertyPath: m_Name
       value: GameView
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751131054646157284, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751131054646157284, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571948449875694250, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6571948449875694250, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839985937095560635, guid: 9e1dd2b30ec0fc14ab1b7248eacf0eef, type: 3}
       propertyPath: m_Pivot.x

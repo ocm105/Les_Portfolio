@@ -6,19 +6,21 @@ using UnityEngine.AI;
 
 public class MonsterBase : MonoBehaviour, IDamage
 {
+    protected DungeonController dungeonController;
+    public void SetDungeonController(DungeonController control) { dungeonController = control; }
     public MonsterData monsterData { get; protected set; }
     public MonsterState monsterState { get; protected set; }
-    public MonsterAniState monsterAniState { get; protected set; }
-    public Action<MonsterBase> dieCall;
+    protected MonsterAniState monsterAniState;
+
+    protected GameObject player;
+    public void SetPlayer(GameObject _player) { player = _player; }
 
     protected Animator animator;
     protected NavMeshAgent agent;
-
-    protected GameObject player;
-
     public GameObject hpBar;
     private float damage = 0;
     private float atkTime = 0;
+    public bool isAttack { get; protected set; }
 
 
     private void Awake()
@@ -26,7 +28,6 @@ public class MonsterBase : MonoBehaviour, IDamage
         animator = this.GetComponent<Animator>();
         agent = this.GetComponent<NavMeshAgent>();
     }
-
     protected virtual void Start()
     {
         SetMonsterData(MonsterType.none);
@@ -40,30 +41,31 @@ public class MonsterBase : MonoBehaviour, IDamage
         monsterState = MonsterState.Alive;
         this.gameObject.SetActive(true);
     }
-
     protected void SetMonsterData(MonsterType monsterType)
     {
         monsterData = GameDataManager.Instance.monster_Data[(int)monsterType];
         agent.speed = monsterData.speed;
     }
-    public void SetPlayer(GameObject _player)
-    {
-        player = _player;
-    }
 
     private void Update()
     {
-        switch (monsterState)
+        switch (dungeonController.gameView.dungeonState)
         {
-            case MonsterState.Alive:
-                if (MoveCheck())
-                    Move();
-                else
-                    Attack();
+            case DungeonState.Start:
+                if (monsterState == MonsterState.Alive)
+                {
+                    if (MoveCheck())
+                        Move();
+                    else
+                        Attack();
+                }
                 break;
-            case MonsterState.Stop:
+            case DungeonState.Stop:
+                Stop();
                 break;
-            case MonsterState.Die:
+            case DungeonState.Fail:
+            case DungeonState.Victory:
+                Die();
                 break;
         }
     }
@@ -116,20 +118,29 @@ public class MonsterBase : MonoBehaviour, IDamage
             atkTime = 0;
         }
     }
+    public void AnimationEvent_Attack(int value)
+    {
+        isAttack = value > 0 ? true : false;
+    }
 
     private void Hit(float value)
     {
+        if (monsterState == MonsterState.Die) return;
+
         if (value <= monsterData.def)
             damage = 0;
         else
         {
             damage = (value - monsterData.def) / monsterData.hp;
             // Debug.Log($"Monster에게 {damage}의 데미지");
-            hpBar.transform.localScale = new Vector3(Mathf.Clamp(hpBar.transform.localScale.x - damage, 0, 1), 1, 1);
+            hpBar.transform.localScale = new Vector3(hpBar.transform.localScale.x - damage, 1, 1);
         }
 
         if (hpBar.transform.localScale.x <= 0)
+        {
+            dungeonController.gameView.KillSet();
             Die();
+        }
         else
         {
             AnimationChanger(MonsterAniState.Hit);
@@ -138,27 +149,33 @@ public class MonsterBase : MonoBehaviour, IDamage
     public void OnDamage(float _damage)
     {
         atkTime = 0;
+        isAttack = false;
         Hit(_damage);
     }
 
     private void Stop()
     {
-        monsterState = MonsterState.Stop;
-        agent.isStopped = true;
+        if (!agent.isStopped)
+            agent.isStopped = true;
     }
     private void Die()
     {
-        StartCoroutine(DieCoroutine());
+        if (monsterState != MonsterState.Die)
+        {
+            isAttack = false;
+            monsterState = MonsterState.Die;
+            StartCoroutine(DieCoroutine());
+        }
     }
     private IEnumerator DieCoroutine()
     {
-        monsterState = MonsterState.Die;
         AnimationChanger(MonsterAniState.Die);
+        hpBar.transform.localScale = new Vector3(0, 1, 1);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f);
 
         this.gameObject.SetActive(false);
-        dieCall?.Invoke(this);
+        dungeonController.MonstartEnqueue(this);
     }
     #endregion
 }

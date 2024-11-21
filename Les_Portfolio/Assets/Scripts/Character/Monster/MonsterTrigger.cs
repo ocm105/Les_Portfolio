@@ -8,7 +8,7 @@ public class MonsterTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && monsterBase.monsterAniState == MonsterAniState.Attack)
+        if (other.CompareTag("Player") && monsterBase.isAttack)
         {
             IDamage target = other.GetComponent<IDamage>();
             if (target != null)

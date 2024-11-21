@@ -24,7 +24,7 @@ public class DungeonButton : MonoBehaviour
     }
     private void SetInfo(LocalDungeonInfo info)
     {
-        if (info.open)
+        if (info.open && dungeonData.monster != MonsterType.none)
         {
             button.interactable = true;
             button.image.color = Color.white;
@@ -55,6 +55,9 @@ public class DungeonButton : MonoBehaviour
 
     public void OnClick_Button()
     {
-        Les_UIManager.Instance.Popup<DungeonInfoPopup>().Open(dungeonData);
+        if (dungeonData.monster != MonsterType.none)
+            Les_UIManager.Instance.Popup<DungeonInfoPopup>().Open(dungeonData);
+        else
+            Les_UIManager.Instance.Popup<BasePopup_Toast>().Open("Common_Develop");
     }
 }

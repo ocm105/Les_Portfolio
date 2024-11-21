@@ -21,7 +21,7 @@ MonoBehaviour:
   - m_Id: 3511652753408
     m_Localized: 'unity portfolio
 
-      Lee Eui-su'
+      Lee Eui-soo'
     m_Metadata:
       m_Items: []
   - m_Id: 5853668220928
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13136329199099904
-    m_Localized: Lee Eui-su
+    m_Localized: 'name :'
     m_Metadata:
       m_Items: []
   - m_Id: 13136329287180288
@@ -156,6 +156,42 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13424232722636800
     m_Localized: Enter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13457906247704576
+    m_Localized: Victory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13457906281259008
+    m_Localized: Fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13459611257446400
+    m_Localized: Lee Eui-soo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13459611257446401
+    m_Localized: 'time :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13462786513346560
+    m_Localized: 'Kills :'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13475461704228864
+    m_Localized: Do you want to leave the dungeon?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13478717947944960
+    m_Localized: 'Mission 1:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13478717947944961
+    m_Localized: 'Mission 2:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13478717947944962
+    m_Localized: 'Mission 3:'
     m_Metadata:
       m_Items: []
   references:

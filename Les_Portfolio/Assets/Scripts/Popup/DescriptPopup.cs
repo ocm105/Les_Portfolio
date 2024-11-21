@@ -11,6 +11,9 @@ public class DescriptPopup : UIPopup
     [SerializeField] Button nextButton;
 
     private int descriptIndex;
+    private string nowMessage;
+    private bool isDone = false;
+    private Coroutine coroutine;
 
     public PopupState Open(DescriptType type)
     {
@@ -28,32 +31,45 @@ public class DescriptPopup : UIPopup
     private void Init(int index)
     {
         descriptIndex = index;
-        StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key));
+        nowMessage = LocalizationManager.Instance.GetLocalizeText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key);
+        coroutine = StartCoroutine(SpeechText(nowMessage));
     }
     #region Event
     private void OnClick_NextBtn()
     {
-        if (GameDataManager.Instance.discription_Data[descriptIndex].next_index == (int)DescriptType.NULL)
-            OnResult(PopupResults.Close);
+        if (isDone)
+        {
+            if (GameDataManager.Instance.discription_Data[descriptIndex].next_index == (int)DescriptType.NULL)
+                OnResult(PopupResults.Close);
+            else
+            {
+                descriptIndex++;
+                nowMessage = LocalizationManager.Instance.GetLocalizeText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key);
+                coroutine = StartCoroutine(SpeechText(nowMessage));
+            }
+        }
         else
         {
-            descriptIndex++;
-            StartCoroutine(SpeechText(GameDataManager.Instance.discription_Data[descriptIndex].descript_key));
+            if (coroutine != null) StopCoroutine(coroutine);
+            descriptsText.text = nowMessage;
+            isDone = true;
         }
     }
     private IEnumerator SpeechText(string key)
     {
+        isDone = false;
         string text = string.Empty;
-        nextButton.image.raycastTarget = false;
+        // nextButton.image.raycastTarget = false;
 
-        string msg = LocalizationManager.Instance.GetLocalizeText(key);
-        for (int i = 0; i < msg.Length; i++)
+        for (int i = 0; i < nowMessage.Length; i++)
         {
             yield return new WaitForSeconds(0.05f);
-            text += msg[i];
+            text += nowMessage[i];
             descriptsText.text = text;
         }
-        nextButton.image.raycastTarget = true;
+        // nextButton.image.raycastTarget = true;
+
+        isDone = true;
     }
 
     #endregion

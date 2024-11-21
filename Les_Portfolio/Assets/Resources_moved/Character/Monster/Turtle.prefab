@@ -490,7 +490,7 @@ GameObject:
   - component: {fileID: 7496412908745694454}
   - component: {fileID: 6806008843384987740}
   - component: {fileID: 7858221783752605066}
-  - component: {fileID: 3733976262281110491}
+  - component: {fileID: 5304163800657927961}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Monster
@@ -606,7 +606,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
---- !u!114 &3733976262281110491
+--- !u!114 &5304163800657927961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,7 +615,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4419260869142033511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d797b52b9ca16458383d7eb579fa10, type: 3}
+  m_Script: {fileID: 11500000, guid: ecbb3c0cfe374444f8e952ad85712236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 2894485581115516052}
@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47190b5eedd71042aa5441aec5fac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterBase: {fileID: 3733976262281110491}
+  monsterBase: {fileID: 0}
 --- !u!1 &5442228896829869953
 GameObject:
   m_ObjectHideFlags: 0
