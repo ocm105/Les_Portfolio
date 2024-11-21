@@ -16,7 +16,6 @@ public class DungeonButton : MonoBehaviour
     {
         button.onClick.AddListener(OnClick_Button);
     }
-
     public void SetDungeonData(DungeonData data)
     {
         dungeonData = data;
