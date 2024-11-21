@@ -7,3 +7,7 @@
 ![LocalBase64](https://github.com/user-attachments/assets/d89bbe66-8741-42aa-8077-2aeebd43df49)
 ![LocalBase64(4)](https://github.com/user-attachments/assets/5f0bcc04-ef06-4c0e-a40c-7aaf99ba142a)
 
+# Cinemachine 카메라 제어
+
+https://github.com/user-attachments/assets/0edbb98e-ed2e-463c-aae4-3eebff2a37e7
+
