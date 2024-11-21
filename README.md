@@ -16,7 +16,10 @@
 
 https://github.com/user-attachments/assets/0edbb98e-ed2e-463c-aae4-3eebff2a37e7
 
-# Network
-![Network1](https://github.com/user-attachments/assets/a6e67da9-63e5-49b7-ac75-2c624298c127)![Network2](https://github.com/user-attachments/assets/e2dbc1a6-a945-44ea-8a72-9c17229cb809)
+# Network \n( Script의 가독성과 팀 작업의 효율을 위해 partial Class를 사용)
+
+
+![Network1](https://github.com/user-attachments/assets/a6e67da9-63e5-49b7-ac75-2c624298c127)
+![Network2](https://github.com/user-attachments/assets/e2dbc1a6-a945-44ea-8a72-9c17229cb809)
 ![Network3](https://github.com/user-attachments/assets/d7bdf95c-eaef-4e4c-bb0f-7655d2d89315)
 
