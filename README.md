@@ -1,3 +1,7 @@
 # Les_Portfolio
-포트폴리오
-![MyPhoto](https://github.com/user-attachments/assets/66cfe2be-b39b-4202-b6eb-2628d3e82635)
+local base64 저장 및 가져오기
+![LocalBase64(3)](https://github.com/user-attachments/assets/817b5fe6-762b-495f-a1e7-8ccb238ab5dd)
+![LocalBase64(2)](https://github.com/user-attachments/assets/d463babc-b31d-4872-9574-0354068958ae)
+![LocalBase64](https://github.com/user-attachments/assets/d89bbe66-8741-42aa-8077-2aeebd43df49)
+![LocalBase64(4)](https://github.com/user-attachments/assets/5f0bcc04-ef06-4c0e-a40c-7aaf99ba142a)
+
