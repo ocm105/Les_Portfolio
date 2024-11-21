@@ -1,6 +1,6 @@
 # Les_Portfolio
 
-# local base64 저장 및 가져오기
+# Local base64 저장 및 가져오기
 
 ![LocalBase64(3)](https://github.com/user-attachments/assets/817b5fe6-762b-495f-a1e7-8ccb238ab5dd)
 ![LocalBase64(2)](https://github.com/user-attachments/assets/d463babc-b31d-4872-9574-0354068958ae)
@@ -17,5 +17,6 @@
 https://github.com/user-attachments/assets/0edbb98e-ed2e-463c-aae4-3eebff2a37e7
 
 # Network
+![Network1](https://github.com/user-attachments/assets/a6e67da9-63e5-49b7-ac75-2c624298c127)![Network2](https://github.com/user-attachments/assets/e2dbc1a6-a945-44ea-8a72-9c17229cb809)
+![Network3](https://github.com/user-attachments/assets/d7bdf95c-eaef-4e4c-bb0f-7655d2d89315)
 
-https://docs.google.com/spreadsheets/d/1XCdzsYQIEroE5NoNgPrv2Ek071ot36CVL6TUbKG_BNI/edit?gid=1851353070#gid=1851353070
