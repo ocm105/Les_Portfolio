@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UISystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,7 +55,6 @@ public class DungeonButton : MonoBehaviour
 
     public void OnClick_Button()
     {
-        GameDataManager.Instance.currentDugeonData = dungeonData;
-        LoadingManager.Instance.SceneLoad(Constants.Scene.Game);
+        Les_UIManager.Instance.Popup<DungeonInfoPopup>().Open(dungeonData);
     }
 }

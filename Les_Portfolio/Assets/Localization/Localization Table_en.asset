@@ -21,7 +21,7 @@ MonoBehaviour:
   - m_Id: 3511652753408
     m_Localized: 'unity portfolio
 
-      Lee Eui-soo'
+      Lee Eui-su'
     m_Metadata:
       m_Items: []
   - m_Id: 5853668220928
@@ -113,7 +113,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13136329199099904
-    m_Localized: Lee Eui-soo
+    m_Localized: Lee Eui-su
     m_Metadata:
       m_Items: []
   - m_Id: 13136329287180288
@@ -148,6 +148,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13187882647855104
     m_Localized: You have not selected a character.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13423708220727296
+    m_Localized: Dungeon Info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13424232722636800
+    m_Localized: Enter
     m_Metadata:
       m_Items: []
   references:

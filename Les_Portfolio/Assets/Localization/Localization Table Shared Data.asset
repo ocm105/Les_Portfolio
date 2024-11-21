@@ -103,6 +103,14 @@ MonoBehaviour:
     m_Key: SettingPopup_language
     m_Metadata:
       m_Items: []
+  - m_Id: 13423708220727296
+    m_Key: DungeonInfoPopup_Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13424232722636800
+    m_Key: DungeonInfoPopup_Start
+    m_Metadata:
+      m_Items: []
   - m_Id: 11196658894282752
     m_Key: Descript_Introduct1
     m_Metadata:

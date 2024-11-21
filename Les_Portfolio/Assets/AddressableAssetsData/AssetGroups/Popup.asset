@@ -45,6 +45,13 @@ MonoBehaviour:
     - Popup
     - All
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08b53d664038d6342a69ae2bbc558286
+    m_Address: DungeonInfoPopup
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Popup
+    - All
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: acda74a656c5c2b4096e7e73899334fd, type: 2}
   m_SchemaSet:
