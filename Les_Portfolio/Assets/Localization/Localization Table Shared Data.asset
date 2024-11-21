@@ -63,8 +63,16 @@ MonoBehaviour:
     m_Key: Title_startButton
     m_Metadata:
       m_Items: []
-  - m_Id: 91537426915328
-    m_Key: Title_load
+  - m_Id: 13527540682498048
+    m_Key: Title_resource
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13527540716052480
+    m_Key: Title_data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13527540716052481
+    m_Key: Title_language
     m_Metadata:
       m_Items: []
   - m_Id: 2865996269395968

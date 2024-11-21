@@ -28,27 +28,39 @@ public class TitleView : UIView
 
     private void Init()
     {
+        CheckFPS.Instance.EnableFPS(30, Color.red);
         title.SetActive(true);
         startText.gameObject.SetActive(true);
         startButton.gameObject.SetActive(false);
+        LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
 
         StartCoroutine(DataLoad());
     }
     private IEnumerator DataLoad()
     {
         // Localization Data Load
-        LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
         yield return StartCoroutine(LocalizationManager.Instance.LoadData());
         WindowDebug.SuccessLog("LocalizationManager Completed");
+        // startText.text = LocalizationManager.Instance.GetLocalizeText("Title_language");
 
-        startText.text = LocalizationManager.Instance.GetLocalizeText("Title_load");
-        // Game Data Load
-        yield return StartCoroutine(GameDataManager.Instance.LoadData());
-        WindowDebug.SuccessLog("GameDataManager Completed");
+        // Resource Down
+        float percent;
+        string str = LocalizationManager.Instance.GetLocalizeText("Title_resource");
 
         AddressableManager.Instance.StartDownload_Addressable("All");
-        yield return new WaitUntil(() => AddressableManager.Instance.isComplete);
+        while (!AddressableManager.Instance.isComplete)
+        {
+            // Debug.Log("DownPercentValue : " + AddressableManager.Instance.DownPercentValue);
+            percent = AddressableManager.Instance.downPercent * 100;
+            startText.text = $"{str}{percent}%";
+            yield return null;
+        }
         yield return StartCoroutine(AddressableManager.Instance.LoadData());
+
+        // Game Data Load
+        startText.text = LocalizationManager.Instance.GetLocalizeText("Title_data");
+        yield return StartCoroutine(GameDataManager.Instance.LoadData());
+        WindowDebug.SuccessLog("GameDataManager Completed");
 
         yield return new WaitForSeconds(2f);
         startButton.gameObject.SetActive(true);

@@ -21,15 +21,11 @@ MonoBehaviour:
   - m_Id: 3511652753408
     m_Localized: 'unity portfolio
 
-      Lee Eui-soo'
+      Lee Eui-su'
     m_Metadata:
       m_Items: []
   - m_Id: 5853668220928
     m_Localized: Click anywhere...
-    m_Metadata:
-      m_Items: []
-  - m_Id: 91537426915328
-    m_Localized: Downloading resources...
     m_Metadata:
       m_Items: []
   - m_Id: 91537489829888
@@ -167,7 +163,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13459611257446400
-    m_Localized: Lee Eui-soo
+    m_Localized: Lee Eui-su
     m_Metadata:
       m_Items: []
   - m_Id: 13459611257446401
@@ -192,6 +188,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13478717947944962
     m_Localized: 'Mission 3:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13527540682498048
+    m_Localized: Downloading resources...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13527540716052480
+    m_Localized: Loading data...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13527540716052481
+    m_Localized: Loading language packs...
     m_Metadata:
       m_Items: []
   references:
