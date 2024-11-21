@@ -21,7 +21,7 @@ MonoBehaviour:
   - m_Id: 3511652753408
     m_Localized: 'unity portfolio
 
-      Lee Eui-su'
+      Lee Eui-soo'
     m_Metadata:
       m_Items: []
   - m_Id: 5853668220928
@@ -163,7 +163,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 13459611257446400
-    m_Localized: Lee Eui-su
+    m_Localized: Lee Eui-soo
     m_Metadata:
       m_Items: []
   - m_Id: 13459611257446401
@@ -200,6 +200,36 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13527540716052481
     m_Localized: Loading language packs...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13136329295568896
+    m_Localized: "hello. My name is Euisu Lee, a Unity client developer.\r\nAt first,
+      I worked in the electrical/electronics industry for about 3 years. Then, for
+      my future and goals, I attended Unity Game Development Academy for a year and
+      got a job as a Unity client as a non-major. It has already been 3 years.\r\nThe
+      reason I set my sights on becoming a game developer is because I like games
+      (I especially like Japanese games a lot).\r\nIt was because I wanted to see
+      someone on the street getting angry, sad, or happy while playing the game I
+      made, and I wanted to play the game myself.\r\nHowever, when I was working,
+      Metaverse was very popular in the job market, so I got a job to improve my
+      development skills.\r\nThe first company I worked at as a developer was developing
+      SI and educational applications.\r\nMy first job at that company was to develop
+      a Metaverse like \u2018Kidstopia\u2019 where children could learn while playing.\r\nAs
+      I was the first Unity developer to join the company, I did not know network
+      integration and had no experience, so I remember working all night for three
+      weeks.\r\nI developed it diligently for a year and learned Cinemachine, Network,
+      Assetbundle, Particle System, and Webview.\r\nA year later, Sasu joined the
+      company and learned UI structure, Addressable, Localization, Git, etc. and
+      used them in development.\r\nAfter a year and a half, I left the company after
+      hearing that Metaverse had completed its first phase of development and would
+      soon be released.\r\nThere were many difficulties, hardships, and concerns
+      due to frequent communication and collaboration with planners and designers
+      during development, but I was very happy that we worked hard from the beginning
+      to the completion of the first development.\r\nI often heard them say, \u2018Mr.
+      Ui-su is very communicative and works hard to do what you ask of him.\u2019\r\nIn
+      this way, I am positive and cheerful, and even when difficult things arise,
+      I do not give up and work hard to explore, try, and move forward.\r\nI want
+      to communicate with many people and develop really fun games together."
     m_Metadata:
       m_Items: []
   references:
