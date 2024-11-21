@@ -12,6 +12,7 @@ public class PlayerBattleControl : MonoBehaviour, IDamage
     private float def = 0;
     private float damage = 0f;
 
+
     private void Awake()
     {
         playerInfo = this.GetComponent<PlayerInfo>();
@@ -29,6 +30,7 @@ public class PlayerBattleControl : MonoBehaviour, IDamage
     {
         playerInfo._playerAniControl.AnimationChanger(PlayerAniState.Attack);
     }
+
     public void Hit(float value)
     {
         if (value <= def)

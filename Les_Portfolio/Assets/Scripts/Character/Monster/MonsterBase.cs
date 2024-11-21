@@ -18,6 +18,7 @@ public class MonsterBase : MonoBehaviour, IDamage
     protected Animator animator;
     protected NavMeshAgent agent;
     public GameObject hpBar;
+    private Vector3 dir;
     private float damage = 0;
     private float atkTime = 0;
     public bool isAttack { get; protected set; }
@@ -103,6 +104,7 @@ public class MonsterBase : MonoBehaviour, IDamage
     }
     private void Move()
     {
+        agent.avoidancePriority = 50;
         AnimationChanger(MonsterAniState.Walk);
     }
     #endregion
@@ -110,6 +112,12 @@ public class MonsterBase : MonoBehaviour, IDamage
     #region Event
     public virtual void Attack()
     {
+        agent.avoidancePriority = 49;
+        agent.velocity = Vector3.zero;
+
+        dir = (player.transform.position - this.transform.position).normalized;
+        dir.y = this.transform.position.y;
+        this.transform.rotation = Quaternion.LookRotation(dir);
         atkTime += Time.deltaTime;
 
         if (atkTime >= monsterData.atkspeed)

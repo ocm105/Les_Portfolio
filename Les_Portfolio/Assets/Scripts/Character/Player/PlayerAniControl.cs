@@ -64,7 +64,7 @@ public class PlayerAniControl : MonoBehaviour
             animator.CrossFade(key.ToString(), 0.1f, 0);
 
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName(key));
-            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f);
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
             AnimationChanger(PlayerAniState.Default);
         }
@@ -77,7 +77,7 @@ public class PlayerAniControl : MonoBehaviour
             animator.CrossFade(key.ToString(), 0.1f, 0);
 
             yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName(key));
-            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f);
+            yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f);
 
             AnimationChanger(PlayerAniState.Default);
         }
