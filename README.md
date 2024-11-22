@@ -63,6 +63,13 @@ https://github.com/user-attachments/assets/0edbb98e-ed2e-463c-aae4-3eebff2a37e7
 ![11](https://github.com/user-attachments/assets/be2f030b-2bfd-4582-a2df-2eb21b1822ae)
 ![22](https://github.com/user-attachments/assets/b91507c7-7544-412c-9ce8-7957dd9f0be0)
 
+# Monster
+- Monster는 NavmeshAgent로 이동 및 제어하며, MonsterBase Script를 상속하여 사용합니다.
+
+![화면 캡처 2024-11-22 093403](https://github.com/user-attachments/assets/9ccfa055-0efa-4417-8864-67c32b7bd08c)
+![base](https://github.com/user-attachments/assets/a50ebb53-4280-40e8-9403-839541623d1a)
+
+
 # 기타 Data
 - 기획자분들과 협업을 위해 Google SpreadSheet를 사용하였습니다.
 
