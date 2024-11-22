@@ -747,7 +747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c47190b5eedd71042aa5441aec5fac5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterBase: {fileID: 0}
+  monsterBase: {fileID: 5304163800657927961}
 --- !u!1 &5442228896829869953
 GameObject:
   m_ObjectHideFlags: 0

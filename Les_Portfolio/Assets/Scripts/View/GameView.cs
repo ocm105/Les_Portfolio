@@ -79,6 +79,7 @@ public class GameView : UIView
             case DungeonState.Start:
                 if (timeInt <= 0f)
                 {
+                    TimeSet(0);
                     SetDungeonState(DungeonState.Victory);
                 }
                 else
