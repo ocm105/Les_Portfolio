@@ -30,7 +30,7 @@ public class ProfilePopup : UIPopup
 
     private void OnClick_GithubBtn()
     {
-        Application.OpenURL("https://www.naver.com/");
+        Application.OpenURL("https://github.com/ocm105/Les_Portfolio.git");
     }
     private void OnClick_CloseBtn()
     {

@@ -39,6 +39,7 @@ public class AddressableManager : SingletonMonoBehaviour<AddressableManager>
     {
         yield return StartCoroutine(GetSizeCoroutine(key));
 
+        Debug.Log(sizeHandle.Status);
         if (sizeHandle.Status == AsyncOperationStatus.Succeeded && downSize > 0)
         {
             AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(key, true);
@@ -61,6 +62,12 @@ public class AddressableManager : SingletonMonoBehaviour<AddressableManager>
                 downPercent = downloadHandle.PercentComplete;
                 yield return null;
             }
+        }
+        else if (sizeHandle.Status == AsyncOperationStatus.Failed)
+        {
+            WindowDebug.FailLog("Addressable DownLoad Fail");
+            PopupState popupState = Les_UIManager.Instance.Popup<BasePopup_OneBtn>().Open("Common_ErrorNetwork");
+            popupState.OnOK = p => Application.Quit();
         }
         else
         {
