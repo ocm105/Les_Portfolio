@@ -39,7 +39,7 @@ public class AddressableManager : SingletonMonoBehaviour<AddressableManager>
     {
         yield return StartCoroutine(GetSizeCoroutine(key));
 
-        Debug.Log(sizeHandle.Status);
+        // Debug.Log(sizeHandle.Status);
         if (sizeHandle.Status == AsyncOperationStatus.Succeeded && downSize > 0)
         {
             AsyncOperationHandle downloadHandle = Addressables.DownloadDependenciesAsync(key, true);

@@ -52,7 +52,7 @@ public class ShoulderViewControl : MonoBehaviour
 
     private void SetMove()
     {
-        shoulderView.m_XAxis.m_InputAxisValue = moveValue.x;
+        shoulderView.m_XAxis.m_InputAxisValue = -moveValue.x;
         shoulderView.m_YAxis.m_InputAxisValue = moveValue.y;
         shoulderView.m_XAxis.m_MaxSpeed = moveSpeedX;
         shoulderView.m_YAxis.m_MaxSpeed = moveSpeedY;

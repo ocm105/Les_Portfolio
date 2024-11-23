@@ -38,7 +38,7 @@ public class FPSViewControl : MonoBehaviour
     private void SetMove()
     {
         x += moveValue.y * moveSpeedY;
-        y += moveValue.x * moveSpeedX;
+        y -= moveValue.x * moveSpeedX;
 
         x = Mathf.Clamp(x, -10f, 20f);
 
