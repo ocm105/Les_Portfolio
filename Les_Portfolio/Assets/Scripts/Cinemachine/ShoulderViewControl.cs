@@ -9,6 +9,10 @@ public class ShoulderViewControl : MonoBehaviour
     [SerializeField] float moveSpeedX = 250f;
     [SerializeField] float moveSpeedY = 3f;
 
+    [Range(0f, 20f)]
+    [SerializeField] float fixValueX = 0;
+    [Range(0f, 20f)]
+    [SerializeField] float fixValueY = 0;
     private CinemachineFreeLook shoulderView;
 
     private Touch touch;
@@ -52,8 +56,8 @@ public class ShoulderViewControl : MonoBehaviour
 
     private void SetMove()
     {
-        shoulderView.m_XAxis.m_InputAxisValue = -moveValue.x;
-        shoulderView.m_YAxis.m_InputAxisValue = moveValue.y;
+        shoulderView.m_XAxis.m_InputAxisValue = Mathf.Abs(moveValue.x) > fixValueX ? -moveValue.x : 0;
+        shoulderView.m_YAxis.m_InputAxisValue = Mathf.Abs(moveValue.y) > fixValueY ? moveValue.y : 0;
         shoulderView.m_XAxis.m_MaxSpeed = moveSpeedX;
         shoulderView.m_YAxis.m_MaxSpeed = moveSpeedY;
     }
