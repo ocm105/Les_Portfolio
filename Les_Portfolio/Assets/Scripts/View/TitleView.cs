@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UISystem;
 using TMPro;
 using DG.Tweening;
+using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 
 public class TitleView : UIView
 {
@@ -12,6 +14,7 @@ public class TitleView : UIView
     [SerializeField] Button startButton;
     [SerializeField] TextMeshProUGUI loadText;
     [SerializeField] TextMeshProUGUI startText;
+    [SerializeField] Button gpgLoginButton;
 
     public void Show()
     {
@@ -20,6 +23,7 @@ public class TitleView : UIView
     protected override void OnFirstShow()
     {
         startButton.onClick.AddListener(OnClick_StartBtn);
+        gpgLoginButton.onClick.AddListener(GPGLogin);
     }
     protected override void OnShow()
     {
@@ -102,6 +106,30 @@ public class TitleView : UIView
             LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
 
     }
+
+    public void GPGLogin()
+    {
+        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+    }
+    internal void ProcessAuthentication(SignInStatus status)
+    {
+        switch (status)
+        {
+            case SignInStatus.Success:
+                string name = PlayGamesPlatform.Instance.GetUserDisplayName();
+                string userID = PlayGamesPlatform.Instance.GetUserId();
+
+                Debug.Log($"<color=green>로그인 성공 Name : {name} UserID :{userID}</color>");
+                break;
+            case SignInStatus.InternalError:
+                Debug.Log($"<color=red>로그인 실패 InternalError</color>");
+                break;
+            case SignInStatus.Canceled:
+                Debug.Log($"<color=red>로그인 실패 Canceled</color>");
+                break;
+        }
+    }
+
     #endregion
 
 }
