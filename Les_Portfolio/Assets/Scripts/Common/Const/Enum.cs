@@ -1,5 +1,12 @@
 
 
+// 메인화면 스테이트
+public enum MainState
+{
+    Loading,
+    Start
+}
+
 #region Setting
 // 언어 타입
 public enum LanguageType

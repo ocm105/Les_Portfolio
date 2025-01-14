@@ -10,11 +10,12 @@ using GooglePlayGames.BasicApi;
 
 public class TitleView : UIView
 {
-    [SerializeField] GameObject title;
-    [SerializeField] Button startButton;
+    [SerializeField] GameObject[] mainObjects;
+    [SerializeField] Image loadBar;
     [SerializeField] TextMeshProUGUI loadText;
-    [SerializeField] TextMeshProUGUI startText;
     [SerializeField] Button gpgLoginButton;
+
+    private MainState mainState;
 
     public void Show()
     {
@@ -22,8 +23,8 @@ public class TitleView : UIView
     }
     protected override void OnFirstShow()
     {
-        startButton.onClick.AddListener(OnClick_StartBtn);
-        gpgLoginButton.onClick.AddListener(GPGLogin);
+        // startButton.onClick.AddListener(OnClick_StartBtn);
+        // gpgLoginButton.onClick.AddListener(GPGLogin);
     }
     protected override void OnShow()
     {
@@ -33,19 +34,18 @@ public class TitleView : UIView
     private void Init()
     {
         CheckFPS.Instance.EnableFPS(30, Color.red);
-        title.SetActive(true);
-        startText.gameObject.SetActive(true);
-        startButton.gameObject.SetActive(false);
         LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
 
         StartCoroutine(DataLoad());
     }
+    #region Function
+    // 필요한 데이터 다운
     private IEnumerator DataLoad()
     {
+        OnChange_MainObject(MainState.Loading);
         // Localization Data Load
         yield return StartCoroutine(LocalizationManager.Instance.LoadData());
         WindowDebug.SuccessLog("LocalizationManager Completed");
-        // startText.text = LocalizationManager.Instance.GetLocalizeText("Title_language");
 
         // Resource Down
         float percent;
@@ -56,56 +56,65 @@ public class TitleView : UIView
         {
             // Debug.Log("DownPercentValue : " + AddressableManager.Instance.DownPercentValue);
             percent = AddressableManager.Instance.downPercent * 100;
-            startText.text = $"{str}{Mathf.RoundToInt(percent)}%";
+            loadText.text = $"{str}{Mathf.RoundToInt(percent)}%";
             yield return null;
         }
         yield return StartCoroutine(AddressableManager.Instance.LoadData());
 
         // Game Data Load
-        startText.text = LocalizationManager.Instance.GetLocalizeText("Title_data");
         yield return StartCoroutine(GameDataManager.Instance.LoadData());
         WindowDebug.SuccessLog("GameDataManager Completed");
 
-        yield return new WaitForSeconds(2f);
-        startButton.gameObject.SetActive(true);
-        startText.text = LocalizationManager.Instance.GetLocalizeText("Title_startButton");
-        Tween_Fadein(startText);
+        OnChange_MainObject(MainState.Start);
     }
+    #endregion
 
     #region Event
-    private void OnClick_StartBtn()
+    // 메인 화면 스테이트에 따라 오브젝트 변경
+    private void OnChange_MainObject(MainState state)
     {
-        startButton.gameObject.SetActive(false);
-        startText.gameObject.SetActive(false);
+        mainState = state;
+        bool isActive = false;
 
-        PopupState popupState = Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
-        popupState.OnClose = p => PortfolioStart();
+        for (int i = 0; i < mainObjects.Length; i++)
+        {
+            isActive = i == (int)state ? true : false;
+            mainObjects[i].SetActive(isActive);
+        }
     }
+    // private void OnClick_StartBtn()
+    // {
+    //     startButton.gameObject.SetActive(false);
+    //     startText.gameObject.SetActive(false);
 
-    private void Tween_Fadein(TextMeshProUGUI text)
-    {
-        if (!text.gameObject.activeInHierarchy) return;
+    //     PopupState popupState = Les_UIManager.Instance.Popup<DescriptPopup>().Open(DescriptType.Title);
+    //     popupState.OnClose = p => PortfolioStart();
+    // }
 
-        startText.DOFade(0, 0.5f).onComplete = () => Tween_Fadeout(startText);
+    // private void Tween_Fadein(TextMeshProUGUI text)
+    // {
+    //     if (!text.gameObject.activeInHierarchy) return;
 
-    }
-    private void Tween_Fadeout(TextMeshProUGUI text)
-    {
-        if (!text.gameObject.activeInHierarchy) return;
+    //     startText.DOFade(0, 0.5f).onComplete = () => Tween_Fadeout(startText);
 
-        startText.DOFade(1, 0.5f).onComplete = () => Tween_Fadein(startText);
-    }
+    // }
+    // private void Tween_Fadeout(TextMeshProUGUI text)
+    // {
+    //     if (!text.gameObject.activeInHierarchy) return;
 
-    private void PortfolioStart()
-    {
-        LocalPlayerInfo localplayerInfo = LocalSave.GetLocalPlayerInfo();
+    //     startText.DOFade(1, 0.5f).onComplete = () => Tween_Fadein(startText);
+    // }
 
-        if (localplayerInfo.playerType == PlayerType.none)
-            LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
-        else
-            LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+    // private void PortfolioStart()
+    // {
+    //     LocalPlayerInfo localplayerInfo = LocalSave.GetLocalPlayerInfo();
 
-    }
+    //     if (localplayerInfo.playerType == PlayerType.none)
+    //         LoadingManager.Instance.SceneLoad(Constants.Scene.Character);
+    //     else
+    //         LoadingManager.Instance.SceneLoad(Constants.Scene.Main);
+
+    // }
 
     public void GPGLogin()
     {

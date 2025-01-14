@@ -32,6 +32,7 @@ public class LocalizationManager : SingletonMonoBehaviour<LocalizationManager>
                 var tableOp = LocalizationSettings.StringDatabase.GetTableAsync(tableName, LocalizationSettings.AvailableLocales.Locales[i]);
                 yield return tableOp;
 
+
                 if (tableOp.Status == AsyncOperationStatus.Succeeded)
                 {
                     localizationTables[i] = tableOp.Result;

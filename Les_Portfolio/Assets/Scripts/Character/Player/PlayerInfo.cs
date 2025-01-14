@@ -27,6 +27,7 @@ public class PlayerInfo : MonoBehaviour
         SetPlayer(LocalSave.GetLocalPlayerInfo().playerType);
     }
 
+    // Player 생성 및 초기 상태
     private void SetPlayer(PlayerType type)
     {
         player = Instantiate(AddressableManager.Instance.GetFBX(type.ToString()), Vector3.zero, Quaternion.identity, this.transform);
