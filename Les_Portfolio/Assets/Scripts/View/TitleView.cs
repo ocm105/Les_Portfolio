@@ -33,7 +33,7 @@ public class TitleView : UIView
 
     private void Init()
     {
-        CheckFPS.Instance.EnableFPS(30, Color.red);
+        // CheckFPS.Instance.EnableFPS(30, Color.red);
         LocalizationManager.Instance.ChangeLanguage((int)LocalSave.GetSettingInfo().languageType);
 
         StartCoroutine(DataLoad());
