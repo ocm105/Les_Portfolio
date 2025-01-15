@@ -9,6 +9,7 @@ public partial class GoogleAdsView : UIView
     // 구글 광고 로드 (전면)
     public void LoadInterstitialAds()
     {
+        interstitialAdsBtn.interactable = false;
         CreateInterstitialAds();
     }
     // 구글 광고 생성 (전면)
@@ -78,12 +79,14 @@ public partial class GoogleAdsView : UIView
         interstitialAd.OnAdFullScreenContentClosed += () =>
         {
             Debug.Log("Interstitial ad full screen content closed.");
+            interstitialAdsBtn.interactable = true;
             // LoadInterstitialAds();
         };
         // Raised when the ad failed to open full screen content.
         interstitialAd.OnAdFullScreenContentFailed += (AdError error) =>
         {
             Debug.LogError("Interstitial ad failed to open full screen content with error : " + error);
+            interstitialAdsBtn.interactable = true;
             // LoadInterstitialAds();
         };
     }

@@ -9,6 +9,7 @@ public partial class GoogleAdsView : UIView
     // 구글 광고 로드 (네이티브 고급 광고)
     public void LoadNativeOverlayAds()
     {
+        nativeOverlayAdsBtn.interactable = false;
         CreateNativeOverlayAds();
     }
     // 구글 광고 생성 (네이티브 고급 광고)
@@ -104,12 +105,14 @@ public partial class GoogleAdsView : UIView
         ad.OnAdFullScreenContentOpened += () =>
         {
             Debug.Log("Native Overlay ad full screen content opened.");
+            nativeOverlayAdsBtn.interactable = true;
             //LoadNativeOverlayAds():
         };
         // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += () =>
         {
             Debug.Log("Native Overlay ad full screen content closed.");
+            nativeOverlayAdsBtn.interactable = true;
             //LoadNativeOverlayAds():
         };
     }

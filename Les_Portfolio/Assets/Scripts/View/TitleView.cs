@@ -13,6 +13,7 @@ public class TitleView : UIView
     [SerializeField] TextMeshProUGUI loadText;
     [SerializeField] Button gpgLoginButton;
     [SerializeField] Button googleAdsButton;
+    [SerializeField] Button unityAdsButton;
 
     private MainState mainState;
 
@@ -25,6 +26,7 @@ public class TitleView : UIView
         // startButton.onClick.AddListener(OnClick_StartBtn);
         // gpgLoginButton.onClick.AddListener(GPGLogin);
         googleAdsButton.onClick.AddListener(OnClick_GoogleAds);
+        unityAdsButton.onClick.AddListener(OnClick_UnityAds);
     }
     protected override void OnShow()
     {
@@ -107,6 +109,10 @@ public class TitleView : UIView
     private void OnClick_GoogleAds()
     {
         LoadingManager.Instance.SceneLoad(Constants.Scene.GoogleAds);
+    }
+    private void OnClick_UnityAds()
+    {
+        LoadingManager.Instance.SceneLoad(Constants.Scene.UnityAds);
     }
 
     // private void OnClick_StartBtn()

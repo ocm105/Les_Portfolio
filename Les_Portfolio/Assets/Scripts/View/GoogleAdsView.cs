@@ -13,7 +13,7 @@ public partial class GoogleAdsView : UIView
     [SerializeField] Button nativeOverlayAdsBtn;
     [SerializeField] Button appOpenAdsBtn;
 
-    [SerializeField] Button exitButton;
+    [SerializeField] Button exitBtn;
 
     public void Show()
     {
@@ -28,7 +28,7 @@ public partial class GoogleAdsView : UIView
         nativeOverlayAdsBtn.onClick.AddListener(LoadNativeOverlayAds);
         appOpenAdsBtn.onClick.AddListener(LoadAppOpenAds);
 
-        exitButton.onClick.AddListener(OnClick_ExitBtn);
+        exitBtn.onClick.AddListener(OnClick_ExitBtn);
     }
     protected override void OnShow()
     {

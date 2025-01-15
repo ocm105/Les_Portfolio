@@ -101,7 +101,7 @@ MonoBehaviour:
   rewardAdsBtn: {fileID: 4976130140855147187}
   nativeOverlayAdsBtn: {fileID: 44869448061329933}
   appOpenAdsBtn: {fileID: 4442868429429763969}
-  exitButton: {fileID: 9027681767831927634}
+  exitBtn: {fileID: 9027681767831927634}
 --- !u!1 &727081019181538344
 GameObject:
   m_ObjectHideFlags: 0

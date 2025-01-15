@@ -12,6 +12,7 @@ public partial class GoogleAdsView : UIView
     // 구글 광고 로드 (앱 오픈)
     public void LoadAppOpenAds()
     {
+        appOpenAdsBtn.interactable = false;
         CreateAppOpenAds();
     }
     // 구글 광고 생성 (앱 오픈)
@@ -85,11 +86,13 @@ public partial class GoogleAdsView : UIView
         ad.OnAdFullScreenContentClosed += () =>
         {
             Debug.Log("App open ad full screen content closed.");
+            appOpenAdsBtn.interactable = true;
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
             Debug.LogError("App open ad failed to open full screen content with error : " + error);
+            appOpenAdsBtn.interactable = true;
         };
     }
 }

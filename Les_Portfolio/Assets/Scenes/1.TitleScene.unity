@@ -355,6 +355,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleView
       objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4702956941643530176, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4835974584116872573, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -673,6 +697,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8620476658774426511, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919017516886370795, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

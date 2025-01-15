@@ -9,6 +9,7 @@ public partial class GoogleAdsView : UIView
     // 구글 광고 로드 (배너)
     public void LoadBannerAds()
     {
+        bannerAdsBtn.interactable = false;
         CreateBannerAds();
     }
     // 구글 광고 생성 (배너)
@@ -51,6 +52,7 @@ public partial class GoogleAdsView : UIView
         bannerView.OnBannerAdLoadFailed += (LoadAdError error) =>
         {
             Debug.LogError("Banner view failed to load an ad with error : " + error);
+            bannerAdsBtn.interactable = true;
         };
         // Raised when the ad is estimated to have earned money.
         bannerView.OnAdPaid += (AdValue adValue) =>
@@ -76,6 +78,7 @@ public partial class GoogleAdsView : UIView
         bannerView.OnAdFullScreenContentClosed += () =>
         {
             Debug.Log("Banner view full screen content closed.");
+            bannerAdsBtn.interactable = true;
         };
     }
 }

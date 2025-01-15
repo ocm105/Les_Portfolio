@@ -10,6 +10,7 @@ public partial class GoogleAdsView : UIView
     // 구글 광고 로드 (보상형)
     public void LoadRewardAds()
     {
+        rewardAdsBtn.interactable = false;
         CreateRewardAds();
     }
     // 구글 광고 생성 (보상형)
@@ -89,12 +90,14 @@ public partial class GoogleAdsView : UIView
         ad.OnAdFullScreenContentClosed += () =>
         {
             Debug.Log("Rewarded ad full screen content closed.");
+            rewardAdsBtn.interactable = true;
             //LoadRewardAds();
         };
         // Raised when the ad failed to open full screen content.
         ad.OnAdFullScreenContentFailed += (AdError error) =>
         {
             Debug.LogError("Rewarded ad failed to open full screen content with error : " + error);
+            rewardAdsBtn.interactable = true;
             //LoadRewardAds();
         };
     }
