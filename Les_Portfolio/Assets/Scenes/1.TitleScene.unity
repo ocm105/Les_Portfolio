@@ -183,6 +183,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231558748145199030, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3526795865099631236, guid: 9768bf8727522844e95e08e2354bb30e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -904,7 +928,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965389784}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fd3feacf10ea88449d083b7f1279c3a, type: 3}
   m_Name: 
@@ -1006,7 +1030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263730278700645101, guid: eb19e5884d8e715438b1d568435ae38d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7900113135552584836, guid: eb19e5884d8e715438b1d568435ae38d, type: 3}
       propertyPath: m_LocalPosition.x

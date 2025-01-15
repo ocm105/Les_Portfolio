@@ -8,15 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1.TitleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/2.CharacterScene.unity
-    guid: 64b0cf8a44bf4b94a8803817f458a798
-  - enabled: 0
-    path: Assets/Scenes/3.MainScene.unity
-    guid: 2d22e6773946b17478f26459ec40c381
-  - enabled: 0
-    path: Assets/Scenes/4.GameScene.unity
-    guid: 4b97530877e2642499cf49d7ef065a94
+  - enabled: 1
+    path: Assets/Scenes/GoogleAdsScene.unity
+    guid: 764c36a8fb2c5be4fb24bd3c0e7bc319
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b85eab02623d2e74d96048536557da95, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 392510d74099cf4429f4bc3985c0ca43, type: 2}

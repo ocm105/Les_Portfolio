@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UISystem;
 using TMPro;
-using DG.Tweening;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 
@@ -14,6 +12,7 @@ public class TitleView : UIView
     [SerializeField] Image loadBar;
     [SerializeField] TextMeshProUGUI loadText;
     [SerializeField] Button gpgLoginButton;
+    [SerializeField] Button googleAdsButton;
 
     private MainState mainState;
 
@@ -25,6 +24,7 @@ public class TitleView : UIView
     {
         // startButton.onClick.AddListener(OnClick_StartBtn);
         // gpgLoginButton.onClick.AddListener(GPGLogin);
+        googleAdsButton.onClick.AddListener(OnClick_GoogleAds);
     }
     protected override void OnShow()
     {
@@ -82,6 +82,33 @@ public class TitleView : UIView
             mainObjects[i].SetActive(isActive);
         }
     }
+    public void GPGLogin()
+    {
+        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
+    }
+    internal void ProcessAuthentication(SignInStatus status)
+    {
+        switch (status)
+        {
+            case SignInStatus.Success:
+                string name = PlayGamesPlatform.Instance.GetUserDisplayName();
+                string userID = PlayGamesPlatform.Instance.GetUserId();
+
+                Debug.Log($"<color=green>로그인 성공 Name : {name} UserID :{userID}</color>");
+                break;
+            case SignInStatus.InternalError:
+                Debug.Log($"<color=red>로그인 실패 InternalError</color>");
+                break;
+            case SignInStatus.Canceled:
+                Debug.Log($"<color=red>로그인 실패 Canceled</color>");
+                break;
+        }
+    }
+    private void OnClick_GoogleAds()
+    {
+        LoadingManager.Instance.SceneLoad(Constants.Scene.GoogleAds);
+    }
+
     // private void OnClick_StartBtn()
     // {
     //     startButton.gameObject.SetActive(false);
@@ -116,29 +143,7 @@ public class TitleView : UIView
 
     // }
 
-    public void GPGLogin()
-    {
-        PlayGamesPlatform.Instance.Authenticate(ProcessAuthentication);
-    }
-    internal void ProcessAuthentication(SignInStatus status)
-    {
-        switch (status)
-        {
-            case SignInStatus.Success:
-                string name = PlayGamesPlatform.Instance.GetUserDisplayName();
-                string userID = PlayGamesPlatform.Instance.GetUserId();
 
-                Debug.Log($"<color=green>로그인 성공 Name : {name} UserID :{userID}</color>");
-                break;
-            case SignInStatus.InternalError:
-                Debug.Log($"<color=red>로그인 실패 InternalError</color>");
-                break;
-            case SignInStatus.Canceled:
-                Debug.Log($"<color=red>로그인 실패 Canceled</color>");
-                break;
-        }
-    }
 
     #endregion
-
 }

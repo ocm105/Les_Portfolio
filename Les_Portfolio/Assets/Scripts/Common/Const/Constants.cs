@@ -8,5 +8,6 @@ public static class Constants
         public const string Character = "2.CharacterScene";
         public const string Main = "3.MainScene";
         public const string Game = "4.GameScene";
+        public const string GoogleAds = "GoogleAdsScene";
     }
 }
